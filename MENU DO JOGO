@@ -1,0 +1,191 @@
+public class teste1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner entrada = new Scanner(System.in);
+		ArrayList alternativasmula = new ArrayList();
+
+		int inicio, nome;
+		String nomeP, simnao, personagem, floresta, regiao, caminho, respostamula;
+		boolean menu = true, menu2 = true, menu3 = true, menu4 = true, menu5 = true, menu6 = true;
+		String respostalobisomem; //essa variável string vai receber o valor que o usuário digitar ao tentar resolver o desafio do lobo na floresta.
+		boolean lobisomem = true; //boolean utilizada para sair do loop while na fase do lobisomem.
+		boolean curupira = false; //boolean utilizada para sair do loop while no desafio para se aliar ao curupira.
+		boolean escolhaajuda = true; //boolean utilizada para sair do loop while quando o usuario tem a opçao de se aliar ao curupira ou não.
+		String respostacurupira; //essa variável string vai receber o valor que o usuário digitar ao tentar resolver o desafio do curupira para se aliar a ele.
+		ArrayList questaocurupira = new ArrayList<String>(); //array list utilizada para "embaralhar" as perguntas do desafio do curupira.
+		ArrayList questaolobisomem = new ArrayList<String>(); //array list utilizada para "embaralhar" as perguntas do desafio do lobisomem.
+		int escolha; //int criado para receber o valor do usuário referente a resposta dele ao querer se aliar com o curupira.
+		boolean ervamate = false; // boolean para sair do looping do desafio da erva-mate
+		ArrayList alternativaservamate = new ArrayList();
+		String respostaervamate;
+		boolean cuca = false;
+		ArrayList alternativascuca = new ArrayList();
+		String respostacuca;
+		
+
+		System.out.println("   				   * A Floresta Criptografada * \n   ");
+		System.out.println(
+				" 	    A Floresta Criptografada é um mundo cultural brasileiro de RPG, gratuito e em tempo real. ");
+		System.out.println(
+				"   Mundo baseado na cultura popular brasileira, expressando a identidade social da comunidade através de criações.");
+		System.out.println(
+				"          Jogo criado por: Caue Angelo, Gabriel Angeli, Gabriel Borges, Leonardo Lorena e Rafael Gomes.\n");
+
+		do {
+			System.out.println("  Escolha uma das opções abaixo: ");
+			System.out.println("       1 – Jogar ");
+			System.out.println("       2 – Intruções ");
+			System.out.println("       3 – Créditos ");
+			System.out.println("       4 - Sair");
+			System.out.println("  Digite a opção escolhida: ");
+			inicio = entrada.nextInt();
+
+			switch (inicio) {
+			case 1:
+
+				System.out.println("  Iniciando o jogo...\n");
+
+				break;
+			case 2:
+				System.out.println(
+						"  Crie seu personagem e faça suas próprias características de acordo com seu modo de jogo.\n"
+								+ "  Suas escolhas interferem diretamente no seu destino, pense bem antes de fazer sua escolha.\n "
+								+ " Selecione apenas os valores válidos.\n");
+
+				break;
+			case 3:
+				System.out.println(
+						"  Jogo criado por: Caue Angelo, Gabriel Angeli, Gabriel Borges, Leonardo Lorena e Rafael Gomes.\n"
+								+ "  Projeto Integrador: Desenvolvimento de Lógica.\n"
+								+ "  Centro Universitário Senac - Grupo 6.\n ");
+				break;
+			case 4:
+				System.out.println("  Saindo do jogo...");
+				System.exit(0);
+				break;
+
+			default:
+				System.out.println("  Valor Inválido, digite novamente.\n");
+
+			}
+		} while (inicio > 1);
+
+		System.out.print("  Digite o nome do seu personagem: \n");
+		nomeP = entrada.next();
+
+		System.out.println("  Deseja que seu nome seja " + nomeP + "?");
+		System.out.println("  Digite SIM ou NAO ");
+		simnao = entrada.next();
+
+		while (menu = true) {
+			if (simnao.equalsIgnoreCase("SIM")) {
+				System.out.println("  Que belo nome " + nomeP + "!!!\n");
+				menu = false;
+				break;
+			} else if (simnao.equalsIgnoreCase("NAO")) {
+				System.out.println("  Que pena que não deseja ser " + nomeP + ", é um excelente nome.");
+				System.out.println("  Digite o nome do seu personagem novamente:\n ");
+				nomeP = entrada.next();
+				System.out.println("  Agora sim " + nomeP + ", esse nome é realmente melhor.");
+				System.out.println("  Deseja que seu nome seja " + nomeP + "?\n");
+				System.out.println("  Digite SIM ou NAO ");
+				simnao = entrada.next();
+
+			} else {
+				System.out.println("  Valor Inválido, digite novamente.");
+				System.out.println("  Deseja que seu nome seja " + nomeP + "?\n");
+				System.out.println("  Digite SIM ou NAO ");
+				simnao = entrada.next();
+
+			}
+		}
+
+		System.out.println("  Seu personagem será Homem ou Mulher? ");
+		System.out.println("  Digite HOMEM ou MULHER\n");
+		personagem = entrada.next();
+
+		while (menu2 = true) {
+
+			if (personagem.equalsIgnoreCase("Homem")) {
+				menu2 = false;
+				break;
+
+			} else if (personagem.equalsIgnoreCase("Mulher")) {
+				menu2 = false;
+				break;
+
+			} else {
+				System.out.println("  Comando inválido.\n ");
+				System.out.println("  Seu personagem será Homem ou Mulher? ");
+				System.out.println("  Digite HOMEM ou MULHER\n");
+				personagem = entrada.next();
+
+			}
+
+		}
+
+		System.out.println("  Escolha uma das regiões abaixo:\n");
+		System.out.println("  *Norte\n" + "  *Nordeste\n" + "   \n  Digite o nome da região para ler mais a respeito.");
+		regiao = entrada.next();
+		while (menu3 = true) {
+			if (regiao.equalsIgnoreCase("Nordeste")) {
+				System.out.println(" " + "     A Região Nordeste do Brasil apresenta diversas configurações quanto\r\n"
+						+ "  aos aspectos naturais dos principais elementos da natureza tais como\r\n"
+						+ "  relevo, vegetação, clima, hidrografia, devido a essas variações essa região foi regionalizada\r\n"
+						+ "  ou dividida em sub-regiões, são elas zona da mata, meio-norte, agreste e sertão.\r\n"
+						+ "  Clima tropical que possui características de temperaturas elevadas e altos índices pluviométricos.\r\n"
+						+ "  \n " + "  Você deseja que essa seja sua região natal??\n   "
+						+ "Digite SIM para escolher esta região ou NÃO para consultar outras: ");
+
+				simnao = entrada.next();
+				if ((simnao.equalsIgnoreCase("SIM"))) {
+					menu3 = false;
+					break;
+				} else if ((simnao.equalsIgnoreCase("NAO"))) {
+					System.out.println("  Escolha uma das regiões abaixo:\n");
+					System.out.println("  *Norte\n" + "  *Nordeste\n"
+							+ "   \n  Digite o nome da região para ler mais a respeito.");
+					regiao = entrada.next();
+
+				}
+
+				else {
+					System.out.println("  Digite um valor válido.\n");
+
+				}
+			} else if (regiao.equalsIgnoreCase("Norte")) {
+				System.out.println(" "
+						+ "     A região Norte é bastante conhecida por dois aspectos principais: é a maior região do Brasil\r\n"
+						+ "  em termos de extensão territorial e é a que concentra a maior biodiversidade\r\n"
+						+ "  graças à existência da Floresta Amazônica. Mais da metade dessa floresta está localizada no território brasileiro.\r\n"
+						+ "  Devido à presença da floresta, é na região Norte que percebemos a grande influência que a\r\n"
+						+ "  paisagem natural possui sobre as ocupações humanas no espaço geográfico. \r\n" + "  \n "
+						+ "  Você deseja que essa seja sua região natal??\n   "
+						+ "Digite SIM para escolher esta região ou NÃO para consultar outras: ");
+
+				simnao = entrada.next();
+				if ((simnao.equalsIgnoreCase("SIM"))) {
+					menu3 = false;
+					break;
+				} else if ((simnao.equalsIgnoreCase("NAO"))) {
+
+					System.out.println("  Escolha uma das regiões abaixo:\n");
+					System.out.println("  *Norte\n" + "  *Nordeste\n"
+							+ "   \n  Digite o nome da região para ler mais a respeito.");
+					regiao = entrada.next();
+
+				}
+
+			}
+
+			else {
+				System.out.println("  Digite um valor válido.\n");
+				System.out.println("  Escolha uma das regiões abaixo:\n");
+				System.out.println(
+						"  *Norte\n" + "  *Nordeste\n" + "   \n  Digite o nome da região para ler mais a respeito.");
+				regiao = entrada.next();
+			}
+
+		}
