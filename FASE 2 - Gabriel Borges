@@ -114,7 +114,7 @@ public class Iara {
             }
             i++;
         } while (i < 3);
-        
+         
         if (i == 3){
             System.out.println("IARA: Que pena! Parece que você não conseguiu advinhar a resposta correta... \n"
                     + "IARA: Mas não se preocupe... Desejo muita boa sorte para superar os desafios daqui em diante. \n");
