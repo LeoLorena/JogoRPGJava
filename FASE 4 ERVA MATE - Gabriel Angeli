@@ -1,0 +1,85 @@
+System.out.println("          \n Logo após muito sacrifício e muito esforço, você conseguiu passar pelo monstro mais temido da floresta. Agora está continuando sua jornada em busca da Erva mate para ela te ajudar a encontrar "
+				+ "sua filha e derrotar a cuca.");
+		System.out.println("       Como o Neguinho do Pastoreiro te contou, a Erva está nessa região da floresta, basta você se concentrar e orar para encontra-la.");
+		System.out.println(nomeP+": Por favor, que eu receba algum sinal para encontrar a Erva, eu preciso encontrar minha filha, POR FAVOR!!!!");
+		System.out.println("       De repente ele ve uma luz forte vindo ao lado de uma árvore, se aproxima e percebe que o sinal que havia pedido foi atendido. Era o Negrinho do Pastoreiro mais uma vez, vindo o ajudar.");
+		System.out.println("Negrinho do Pastoreiro: Sou eu novamente, eu ouvi o seu pedido, estou aqui para te mostrar onde a Erva está localizada. Ande 30 metros para o leste e encontrará a guardiã da folha, Caá-Yari e peça para ela o poder místico da Erva.");
+		System.out.println("       Você está seguindo para o leste da floresta...");
+		System.out.println(nomeP+": Olá, você é a Caá-Yari ?");
+		System.out.println("Caá-Yari: Sim... quem é você ?");
+		System.out.println(nomeP+": Meu nome é (personagem), me disseram que você poderia me ajudar a recuperar minha filha das mãos da cuca. Eu preciso do poder da Erva para conseguir derrota-la.");
+		System.out.println("Caá-Yari: Minha aparição acontece apenas para pessoas e motivos dignos, então se eu estou aqui falando com você, significa que está destinado a receber o poder da folha. Irei dá-lo a você... Mas lembre-se, "
+				+ "use-o com sabedoria, esse poder é sagrado e sua história também. Por isso deve passar por um desafio para provar que é merecedor dessa divindade.\n");
+		System.out.println("       PARA RECEBER O PODER RESOLVA O SEGUINTE DESAFIO: \n");
+
+		alternativaservamate.add("1001(binario)");
+		alternativaservamate.add("1000(binario)");
+		alternativaservamate.add("1010(binario)");
+		alternativaservamate.add("100(binario)");
+		alternativaservamate.add("101(binario)"); // respostas correta
+
+		do {
+			Collections.shuffle(alternativaservamate);
+			Collections.shuffle(alternativaservamate);
+			Collections.shuffle(alternativaservamate);
+			System.out.println("1° ETAPA DESAFIO: 101110100(binario) x 4E(hexa) = x(decimal)");
+	System.out.println("2° ETAPA DESAFIO: x(decimal) / 132(octal) = y(binario) \n");
+	System.out.println("A - " + alternativaservamate.get(0));
+	System.out.println("B - " + alternativaservamate.get(1));
+	System.out.println("C - " + alternativaservamate.get(2));
+	System.out.println("D - " + alternativaservamate.get(3));
+	System.out.println("E - " + alternativaservamate.get(4) + "\n");
+	System.out.println("Qual é o valor de Y em binário ?");
+	respostaervamate = entrada.next();
+
+	switch (respostaervamate) {
+	case "a":
+	case "A":
+		if (alternativaservamate.get(0).equals("101(binario)")) {
+			System.out.println("Caá-Yari: Você se provou merecedor do poder da Erva-Mate. Parabéns!!!!\n");
+			ervamate = true;
+		} else {
+			System.out.println("Caá-Yari: Eu sinto que você pode fazer melhor para merecer o poder, vamos lá!!!\n");
+		}
+		break;
+	case "b":
+	case "B":
+		if (alternativaservamate.get(1).equals("101(binario)")) {
+			System.out.println("Caá-Yari: Você se provou merecedor do poder da Erva-Mate. Parabéns!!!!\n");
+			ervamate = true;
+		} else {
+			System.out.println("Caá-Yari: Eu sinto que você pode fazer melhor para merecer o poder, vamos lá!!!\n");
+		}
+		break;
+	case "c":
+	case "C":
+		if (alternativaservamate.get(2).equals("101(binario)")) {
+			System.out.println("Caá-Yari: Você se provou merecedor do poder da Erva-Mate. Parabéns!!!!\n");
+			ervamate = true;
+		} else {
+			System.out.println("Caá-Yari: Eu sinto que você pode fazer melhor para merecer o poder, vamos lá!!!\n");
+		}
+		break;
+	case "d":
+	case "D":
+		if (alternativaservamate.get(3).equals("101(binario)")) {
+			System.out.println("Caá-Yari: Você se provou merecedor do poder da Erva-Mate. Parabéns!!!!\n");
+			ervamate = true;
+		} else {
+			System.out.println("Caá-Yari: Eu sinto que você pode fazer melhor para merecer o poder, vamos lá!!!\n");
+		}
+		break;
+	case "e":
+	case "E":
+		if (alternativaservamate.get(4).equals("101(binario)")) {
+			System.out.println("Caá-Yari: Você se provou merecedor do poder da Erva-Mate. Parabéns!!!!\n");
+			ervamate = true;
+		} else {
+			System.out.println("Caá-Yari: Eu sinto que você pode fazer melhor para merecer o poder, vamos lá!!!\n");
+		}
+		break;
+	default:
+		System.out.println("Computador: Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+		ervamate = false;
+		}
+		} while (ervamate == false);
