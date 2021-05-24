@@ -1,0 +1,124 @@
+package rpg;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Iara {
+
+    public static void main(String[] args) {
+
+        Scanner entrada = new Scanner(System.in);
+        ArrayList questaoiara = new ArrayList();
+
+        String nome, resposta, simnao;
+        int i = 0;
+        boolean menu = true;
+
+        System.out.println("Após atravessar a floresta e ter escolhido seguir o caminho mais luminoso... \n"
+                + "Você acaba de chegar a uma costa, um lugar onde o sol está forte, onde há grandes rochas e um vasto mar brilhante. \n"
+                + "Aproximando do mar, você consegue ver de longe uma mulher muito bela, com longos cabelos pretos e olhos castanhos. \n"
+                + "Assim que olha para ela, ela se vira e começa a caminhar em sua direção e automaticamente você entra em estado de ENCANTO.\n");
+        System.out.println("IARA: Por que está olhando fixamente para mim? Está interessado em mim?");
+        System.out.println("IARA: Qual seu nome?");
+        nome = entrada.next();
+        System.out.println("IARA: Prazer " + nome + ", meu nome é Iara, sou considerada a Mãe d'Água... \n");
+        System.out.println(nome + ": Olá Iara...");
+        System.out.println("IARA: Você aparece um pouco acanhado, me conte o que busca por aqui...");
+        System.out.println(nome + ": Estou atrás da minha filha... Preciso encontrar ela.");
+        System.out.println("IARA: Entendo... Mas calma lá, deixa eu te contar um pouco sobre mim... Parece que está interessado em saber hahaha! \n");
+        System.out.println("IARA: Sente-se e escute! \n");
+        System.out.println("Imediatamente quando IARA diz esta frase, você se senta na areia, na frente dela enquanto ela te rodeia e começa a contar a história... \n"
+                + "IARA: Tive uma história de vida bem complicada, onde até meus próprios irmãos tentaram me matar por causa de inveja. \n"
+                + "IARA: Eu tive que lutar pela minha sobrevivência contra minha própria família! Infelizmente acabou gerando muitas mortes... \n"
+                + "IARA: Além do mais, como punição, meu pai me lançou ao mar para morrer, porém sorte que os peixes estavam ao meu lado e me permitiram viver mais uma vez. \n"
+                + "IARA: Me transformaram no que sou hoje, uma mulher metade humana e metade peixe... Enfim, acredito que acabei contando bastante sobre minha história; \n"
+                + "IARA: Mas eu entendo que o real motivo de você estar aqui. É para superar o meu desafio. \n");
+
+        System.out.println("IARA: Pois bem... Vamos começar então com o desafio... \n");
+
+        questaoiara.add("20");
+        questaoiara.add("24");
+        questaoiara.add("48");
+        questaoiara.add("12");
+        questaoiara.add("25");
+        
+        do {
+            Collections.shuffle(questaoiara);
+            Collections.shuffle(questaoiara);
+            Collections.shuffle(questaoiara);
+            
+            System.out.println("Helena e Giovanni são irmãos gêmeos. A metade da idade de Helena mais um terço da idade de Giovanni, é igual 20. \n"
+                    + "Qual a soma da idade dos dois irmãos? \n");
+                    System.out.println("A) " + questaoiara.get(0));
+                    System.out.println("B) " + questaoiara.get(1));
+                    System.out.println("C) " + questaoiara.get(2));
+                    System.out.println("D) " + questaoiara.get(3));
+                    System.out.println("E) " + questaoiara.get(4));
+            resposta = entrada.next();
+            
+            switch (resposta.toUpperCase()) {
+            case "A":
+                if (questaoiara.get(0).equals("20")) {
+                    System.out.println("IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
+                    + "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
+                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "B":
+                if (questaoiara.get(1).equals("20")) {
+                    System.out.println("IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
+                    + "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
+                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "C":
+                if (questaoiara.get(2).equals("20")) {
+                    System.out.println("IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
+                    + "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
+                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "D":  
+                if (questaoiara.get(3).equals("20")) {
+                    System.out.println("IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
+                    + "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
+                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "E":
+                if (questaoiara.get(4).equals("20")) {
+                    System.out.println("IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
+                    + "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
+                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta! \n");
+                }
+                break;
+            default:
+                System.out.println("Opção inválida! Responda apenas com as opções indicadas! \n");
+                break;
+            }
+            i++;
+        } while (i < 3);
+        
+        if (i == 3){
+            System.out.println("IARA: Que pena! Parece que você não conseguiu advinhar a resposta correta... \n"
+                    + "IARA: Mas não se preocupe... Desejo muita boa sorte para superar os desafios daqui em diante. \n");
+        }   
+
+    }
+}
