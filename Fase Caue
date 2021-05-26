@@ -1,0 +1,232 @@
+package jogo;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class fase {
+
+	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
+        ArrayList questaoiara = new ArrayList();
+
+        String nome, resposta, simnao;
+        int i = 0;
+        boolean menu = true;
+
+        System.out.println("Após ter terminado o desafio da IARA... \n"
+                + "Você acaba ficando com sede e resolve beber uma agua. \n"
+                + "Aproximando do mar, você consegue ver um movimento muito estranho na agua parecendo que tem alguem mudadno o sentido da agua. \n"
+                + "Você joga agua no rosto pois nao sabe se é verdade no que esta vendo.\n"
+                + "Quando derempente sureje uma cobra gigante debaixo da agua! ");
+        System.out.println("Boiuna: Porque esta com medo, nao vou fazer nada com vc, a nao ser que vc seja um pescador!!");
+        System.out.println("Boiuna: Qual seu nome?");
+        nome = entrada.next();
+        System.out.println("Boiuna: Muito prazer " + nome + ", meu nome é Boiuna ou Serpernte gigante, sou considerado o protetor da agua... \n");
+        System.out.println(nome + ": Olá Boiuna...");
+        System.out.println("Boiuna: Você parece estar perdido gostaria de alguma ajuda?...");
+        System.out.println("Boiuna: Fica aqui mesmo que vou ver um otimo caminho para ajudar voce! \n");
+        System.out.println("Boiuna: Mas uma coisa para voce conseguir essa ajuda minha voce tera q responder uma pergiunta! \n");
+
+        System.out.println("Boiuna: Encontrei um otimo caminho para voce, mas voce tem que me respoder uma charada!! \n");
+
+        questaoiara.add("28");
+        questaoiara.add("10");
+        questaoiara.add("34");
+        questaoiara.add("10");
+        questaoiara.add("20");
+        
+        do {
+            Collections.shuffle(questaoiara);
+            Collections.shuffle(questaoiara);
+            Collections.shuffle(questaoiara);
+            
+            System.out.println("Pediram para o Jaime para ele pintar os números de todas as portas de uma vila. Há, ao todo, 100 casas nessa vila. \n"
+                    + "Quantas vezes Jaime terá de pintar o número 8?? \n");
+                    System.out.println("A) " + questaoiara.get(0));
+                    System.out.println("B) " + questaoiara.get(1));
+                    System.out.println("C) " + questaoiara.get(2));
+                    System.out.println("D) " + questaoiara.get(3));
+                    System.out.println("E) " + questaoiara.get(4));
+            resposta = entrada.next();
+            
+            switch (resposta.toUpperCase()) {
+            case "A":
+                if (questaoiara.get(0).equals("20")) {
+                    System.out.println("Boiuna: Parabéns!você acertou a resposta ... \n"
+                    + "Boiuna: So foi uma pergunta pra saber se Voce  \n"
+                    + "Boiuna: A dica  é so seguir reto mesmo nao tem aonde ir kkk, boa sorte na sua jornada!!\n");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "B":
+                if (questaoiara.get(1).equals("20")) {
+                    System.out.println("Boiuna: Parabéns!você acertou a resposta ... \n"
+                            + "Boiuna: So foi uma pergunta pra saber se Voce  \n"
+                            + "Boiuna: A dica  é so seguir reto mesmo nao tem aonde ir kkk, boa sorte na sua jornada!!\n");
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "C":
+                if (questaoiara.get(2).equals("20")) {
+                    System.out.println("Boiuna: Parabéns!você acertou a resposta ... \n"
+                            + "Boiuna: So foi uma pergunta pra saber se Voce  \n"
+                            + "Boiuna: A dica  é so seguir reto mesmo nao tem aonde ir kkk, boa sorte na sua jornada!!\n");
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "D":  
+                if (questaoiara.get(3).equals("20")) {
+                    System.out.println("Boiuna: Parabéns!você acertou a resposta ... \\n\"\r\n"
+                    		+ "                            + \"Boiuna: So foi uma pergunta pra saber se Voce  \\n\"\r\n"
+                    		+ "                            + \"Boiuna: A dica  é so seguir reto mesmo nao tem aonde ir kkk, boa sorte na sua jornada!!\\n\");");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "E":
+                if (questaoiara.get(4).equals("20")) {
+                    System.out.println("Boiuna: Parabéns!você acertou a resposta ... \\n\"\r\n"
+                    		+ "                            + \"Boiuna: So foi uma pergunta pra saber se Voce  \\n\"\r\n"
+                    		+ "                            + \"Boiuna: A dica  é so seguir reto mesmo nao tem aonde ir kkk, boa sorte na sua jornada!!\\n\");");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta! \n");
+                }
+                break;
+            default:
+                System.out.println("Opção inválida! Responda apenas com as opções indicadas! \n");
+                break;
+            }
+            i++;
+        } while (i < 3);
+         
+        if (i == 3){
+            System.out.println("Boiuna: parece que voce nao acertou mas nao se preoculpa, essa pergunta nao vale nada so foi um dezafio extra! \n"
+                    + "");
+
+	}
+
+	}
+}
+package jogo;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class fase {
+
+	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
+        ArrayList questaoiara = new ArrayList();
+
+        String nome, resposta, simnao;
+        int i = 0;
+        boolean menu = true;
+
+        System.out.println("Após ter terminado o desafio da IARA... \n"
+                + "Você acaba ficando com sede e resolve beber uma agua. \n"
+                + "Aproximando do mar, você consegue ver um movimento muito estranho na agua parecendo que tem alguem mudadno o sentido da agua. \n"
+                + "Você joga agua no rosto pois nao sabe se é verdade no que esta vendo.\n"
+                + "Quando derempente sureje uma cobra gigante debaixo da agua! ");
+        System.out.println("Boiuna: Porque esta com medo, nao vou fazer nada com vc, a nao ser que vc seja um pescador!!");
+        System.out.println("Boiuna: Qual seu nome?");
+        nome = entrada.next();
+        System.out.println("Boiuna: Muito prazer " + nome + ", meu nome é Boiuna ou Serpernte gigante, sou considerado o protetor da agua... \n");
+        System.out.println(nome + ": Olá Boiuna...");
+        System.out.println("Boiuna: Você parece estar perdido gostaria de alguma ajuda?...");
+        System.out.println("Boiuna: Fica aqui mesmo que vou ver um otimo caminho para ajudar voce! \n");
+        System.out.println("Boiuna: Mas uma coisa para voce conseguir essa ajuda minha voce tera q responder uma pergiunta! \n");
+
+        System.out.println("Boiuna: Encontrei um otimo caminho para voce, mas voce tem que me respoder uma charada!! \n");
+
+        questaoiara.add("28");
+        questaoiara.add("10");
+        questaoiara.add("34");
+        questaoiara.add("10");
+        questaoiara.add("20");
+        
+        do {
+            Collections.shuffle(questaoiara);
+            Collections.shuffle(questaoiara);
+            Collections.shuffle(questaoiara);
+            
+            System.out.println("Pediram para o Jaime para ele pintar os números de todas as portas de uma vila. Há, ao todo, 100 casas nessa vila. \n"
+                    + "Quantas vezes Jaime terá de pintar o número 8?? \n");
+                    System.out.println("A) " + questaoiara.get(0));
+                    System.out.println("B) " + questaoiara.get(1));
+                    System.out.println("C) " + questaoiara.get(2));
+                    System.out.println("D) " + questaoiara.get(3));
+                    System.out.println("E) " + questaoiara.get(4));
+            resposta = entrada.next();
+            
+            switch (resposta.toUpperCase()) {
+            case "A":
+                if (questaoiara.get(0).equals("20")) {
+                    System.out.println("Boiuna: Parabéns!você acertou a resposta ... \n"
+                    + "Boiuna: So foi uma pergunta pra saber se Voce  \n"
+                    + "Boiuna: A dica  é so seguir reto mesmo nao tem aonde ir kkk, boa sorte na sua jornada!!\n");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "B":
+                if (questaoiara.get(1).equals("20")) {
+                    System.out.println("Boiuna: Parabéns!você acertou a resposta ... \n"
+                            + "Boiuna: So foi uma pergunta pra saber se Voce  \n"
+                            + "Boiuna: A dica  é so seguir reto mesmo nao tem aonde ir kkk, boa sorte na sua jornada!!\n");
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "C":
+                if (questaoiara.get(2).equals("20")) {
+                    System.out.println("Boiuna: Parabéns!você acertou a resposta ... \n"
+                            + "Boiuna: So foi uma pergunta pra saber se Voce  \n"
+                            + "Boiuna: A dica  é so seguir reto mesmo nao tem aonde ir kkk, boa sorte na sua jornada!!\n");
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "D":  
+                if (questaoiara.get(3).equals("20")) {
+                    System.out.println("Boiuna: Parabéns!você acertou a resposta ... \\n\"\r\n"
+                    		+ "                            + \"Boiuna: So foi uma pergunta pra saber se Voce  \\n\"\r\n"
+                    		+ "                            + \"Boiuna: A dica  é so seguir reto mesmo nao tem aonde ir kkk, boa sorte na sua jornada!!\\n\");");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta!");
+                }
+                break;
+            case "E":
+                if (questaoiara.get(4).equals("20")) {
+                    System.out.println("Boiuna: Parabéns!você acertou a resposta ... \\n\"\r\n"
+                    		+ "                            + \"Boiuna: So foi uma pergunta pra saber se Voce  \\n\"\r\n"
+                    		+ "                            + \"Boiuna: A dica  é so seguir reto mesmo nao tem aonde ir kkk, boa sorte na sua jornada!!\\n\");");
+                    i = 4;
+                } else {
+                    System.out.println("Resposta incorreta! \n");
+                }
+                break;
+            default:
+                System.out.println("Opção inválida! Responda apenas com as opções indicadas! \n");
+                break;
+            }
+            i++;
+        } while (i < 3);
+         
+        if (i == 3){
+            System.out.println("Boiuna: parece que voce nao acertou mas nao se preoculpa, essa pergunta nao vale nada so foi um dezafio extra! \n"
+                    + "");
+
+	}
+
+	}
+}
