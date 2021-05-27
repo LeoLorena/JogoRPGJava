@@ -11,15 +11,14 @@ public class Iara {
         Scanner entrada = new Scanner(System.in);
         ArrayList questaoiara = new ArrayList();
 
-        String nome, resposta, simnao;
+        String nome, resposta;
         int i = 0;
-        boolean menu = true;
 
         System.out.println("Após atravessar a floresta e ter escolhido seguir o caminho mais luminoso... \n"
                 + "Você acaba de chegar a uma costa, um lugar onde o sol está forte, onde há grandes rochas e um vasto mar brilhante. \n"
                 + "Aproximando do mar, você consegue ver de longe uma mulher muito bela, com longos cabelos pretos e olhos castanhos. \n"
                 + "Assim que olha para ela, ela se vira e começa a caminhar em sua direção e automaticamente você entra em estado de ENCANTO.\n");
-        System.out.println("IARA: Por que está olhando fixamente para mim? Está interessado em mim?");
+        System.out.println("IARA: Por que está olhando fixamente para mim? Está interessado(a) em mim?");
         System.out.println("IARA: Qual seu nome?");
         nome = entrada.next();
         System.out.println("IARA: Prazer " + nome + ", meu nome é Iara, sou considerada a Mãe d'Água... \n");
@@ -62,7 +61,10 @@ public class Iara {
                 if (questaoiara.get(0).equals("20")) {
                     System.out.println("IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
                     + "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
-                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n");
+                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n"
+                    + "© -- Fórmula de Bhaskara -- © \n"
+                    + "Delta: b^2 - 4*a*c \n"
+                    + "Raízes: x = (-b +/- √Delta) / 2*a");
                     i = 4;
                 } else {
                     System.out.println("Resposta incorreta!");
@@ -72,7 +74,10 @@ public class Iara {
                 if (questaoiara.get(1).equals("20")) {
                     System.out.println("IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
                     + "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
-                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n");
+                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n"
+                    + "© -- Fórmula de Bhaskara -- © \n"
+                    + "Delta: b^2 - 4*a*c \n"
+                    + "Raízes: x = (-b +/- √Delta) / 2*a");
                     i = 4;
                 } else {
                     System.out.println("Resposta incorreta!");
@@ -82,7 +87,10 @@ public class Iara {
                 if (questaoiara.get(2).equals("20")) {
                     System.out.println("IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
                     + "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
-                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n");
+                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n"
+                    + "© -- Fórmula de Bhaskara -- © \n"
+                    + "Delta: b^2 - 4*a*c \n"
+                    + "Raízes: x = (-b +/- √Delta) / 2*a");
                     i = 4;
                 } else {
                     System.out.println("Resposta incorreta!");
@@ -92,7 +100,10 @@ public class Iara {
                 if (questaoiara.get(3).equals("20")) {
                     System.out.println("IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
                     + "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
-                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n");
+                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n"
+                    + "© -- Fórmula de Bhaskara -- © \n"
+                    + "Delta: b^2 - 4*a*c \n"
+                    + "Raízes: x = (-b +/- √Delta) / 2*a");
                     i = 4;
                 } else {
                     System.out.println("Resposta incorreta!");
@@ -102,7 +113,10 @@ public class Iara {
                 if (questaoiara.get(4).equals("20")) {
                     System.out.println("IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
                     + "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
-                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n");
+                    + "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n"
+                    + "© -- Fórmula de Bhaskara -- © \n"
+                    + "Delta: b^2 - 4*a*c \n"
+                    + "Raízes: x = (-b +/- √Delta) / 2*a");
                     i = 4;
                 } else {
                     System.out.println("Resposta incorreta! \n");
@@ -114,10 +128,17 @@ public class Iara {
             }
             i++;
         } while (i < 3);
-         
+        
         if (i == 3){
             System.out.println("IARA: Que pena! Parece que você não conseguiu advinhar a resposta correta... \n"
                     + "IARA: Mas não se preocupe... Desejo muita boa sorte para superar os desafios daqui em diante. \n");
         }   
+        
+        System.out.println("Após passar pelo desafio da IARA, vem novamente em sua mente... \n "
+                + "Lembranças de certos momentos com sua filha, momentos felizes que passaram juntos, \n"
+                + "fornecendo mais motivações para continuar enfrentando todos os demais desafios.");
+        System.out.println("Antes de ir... Você olha para trás e vê IARA caminhando de volta ao mar, \n"
+                + "retornando ao seu ambiente. Liberando sua passagem, permitindo com que você avance adiante...");
+
     }
 }
