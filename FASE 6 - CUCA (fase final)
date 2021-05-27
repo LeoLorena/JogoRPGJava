@@ -1,0 +1,92 @@
+System.out.println("       Agora que conseguiu obter a Erva-Mate, você recebeu um buff de 100% de vida e 50% de inteligência. Isso irá te ajudar no seu desafio final contra a cuca... Prepare-se!\n");
+		System.out.println("       Agora, mais destemido do que nunca, você já sabe que o esconderijo da cuca está próximo.");
+		System.out.println(nomeP+": Eu sei que estou perto, cheguei até aqui e não vou desistir de jeito nenhum...");
+		System.out.println("       Ao se aproximar do esconderijo seu corpo já começa a sentir calafrios, sente que o perigo está proximo.\n");
+		System.out.println("   SCRHHH!!!!!!!\n");
+		System.out.println("       Na escuridão da floresta você avista uma criatura esquisita, parecendo um lacoste e fala:");
+		System.out.println(nomeP+": CUCA ? Eu sei que é você, pode sair da escuridão e devolva minha filha, eu não saio daqui sem ela!!!!");
+		System.out.println("Cuca: HAHAHAHAHAHA!!!! Em poucos minutos os preparativos estarão prontos e o meu plano finalmente poderá acontecer!!! Sua filha é a peça chave para tudo isso dar certo, não existe mais volta!");
+		System.out.println(nomeP+": NADA DISSO! Eu não saio daqui sem ela, já sei como te derrotar e não vou desistir!");
+		System.out.println("Cuca: Você acha mesmo que tem chances contra mim ? Eu tenho as trevas como minha aliada!");
+		System.out.println(nomeP+": Não me importo, os poderes divinos estão do meu! \n");
+		System.out.println("       A batalha final com a cuca irá acontecer... PREPARE-SE!!!");
+		System.out.println("       PARA DERROTAR A CUCA RESOLVA O SEGUINTE DESAFIO: \n");
+		System.out.println("*---- LEMBRE-SE: VOCÊ ESTÁ COM O PODER DIVINO DA ERVA MATE, COM 100% A MAIS DE VIDA NÃO PODE SER DERROTADO. 50% A MAIS DE INTELIGÊNCIA VOCÊ TEM DIREITO A UMA DICA. \n");
+
+		alternativascuca.add("1,35"); // resposta correta
+		alternativascuca.add("2,00");
+		alternativascuca.add("1,30");
+		alternativascuca.add("1,40");
+		alternativascuca.add("1,50");
+
+		do {
+			Collections.shuffle(alternativascuca);
+			Collections.shuffle(alternativascuca);
+			Collections.shuffle(alternativascuca);
+
+			System.out.println("DICA 1: A raiz quadrada de 484 é igual a 22. ");
+			System.out.println("1° ETAPA DESAFIO: 10000000(binário) + resultado positivo da equação (2x²- 6x - 56 = 0) = x(decimal) \n");
+			System.out.println("2° ETAPA DESAFIO: x / E9(hexadecimal) = y(decimal)");
+
+			System.out.println("A - " + alternativascuca.get(0));
+			System.out.println("B - " + alternativascuca.get(1));
+			System.out.println("C - " + alternativascuca.get(2));
+			System.out.println("D - " + alternativascuca.get(3));
+			System.out.println("E - " + alternativascuca.get(4) + "\n");
+			System.out.println("Qual o valor de Y em decimal ?");
+			respostacuca = entrada.next();
+
+			switch (respostacuca) {
+
+			case "a":
+			case "A":
+				if (alternativascuca.get(0).equals("1,35")) {
+					System.out.println("       Esse ataque foi certeiro, parabens!!! Você conseguiu derrota-lá. Pegue sua filha e và embora desse lugar!\n");
+					cuca = true;
+				} else {
+					System.out.println("       Dessa vez você teve sorte!! O poder da Erva-mate fez você aguentar o tranco!! Preste atenção na dica e tente novamente. Você é capaz!!!\n");
+				}
+				break;
+			case "b":
+			case "B":
+				if (alternativascuca.get(1).equals("1,35")) {
+					System.out.println("       Esse ataque foi certeiro, parabens!!! Você conseguiu derrota-lá. Pegue sua filha e và embora desse lugar!\n");
+					cuca = true;
+				} else {
+					System.out.println("       Dessa vez você teve sorte!! O poder da Erva-mate fez você aguentar o tranco!! Preste atenção na dica e tente novamente. Você é capaz!!!\n");
+				}
+				break;
+			case "c":
+			case "C":
+				if (alternativascuca.get(2).equals("1,35")) {
+					System.out.println("       Esse ataque foi certeiro, parabens!!! Você conseguiu derrota-lá. Pegue sua filha e và embora desse lugar!\n");
+					cuca = true;
+				} else {
+					System.out.println("       Dessa vez você teve sorte!! O poder da Erva-mate fez você aguentar o tranco!! Preste atenção na dica e tente novamente. Você é capaz!!!\n");
+				}
+				break;
+			case "d":
+			case "D":
+				if (alternativascuca.get(3).equals("1,35")) {
+					System.out.println("       Esse ataque foi certeiro, parabens!!! Você conseguiu derrota-lá. Pegue sua filha e và embora desse lugar!\n");
+					cuca = true;
+				} else {
+					System.out.println("       Dessa vez você teve sorte!! O poder da Erva-mate fez você aguentar o tranco!! Preste atenção na dica e tente novamente. Você é capaz!!!\n");
+				}
+				break;
+			case "e":
+			case "E":
+				if (alternativascuca.get(4).equals("1,35")) {
+					System.out.println("       Esse ataque foi certeiro, parabens!!! Você conseguiu derrota-lá. Pegue sua filha e và embora desse lugar!\n");
+					cuca = true;
+				} else {
+					System.out.println("       Dessa vez você teve sorte!! O poder da Erva-mate fez você aguentar o tranco!! Preste atenção na dica e tente novamente. Você é capaz!!!\n");
+				}
+				break;
+			default:
+				System.out.println("       Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+				cuca = false;
+			}
+		} while (cuca == false);			
+	} 
+}
