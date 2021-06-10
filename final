@@ -1,0 +1,3030 @@
+	import java.util.Scanner;
+	import java.nio.file.FileSystemAlreadyExistsException;
+	import java.util.ArrayList;
+	import java.util.Collections;
+	
+public class JogoComp {
+	static Scanner entrada = new Scanner(System.in);
+	static int menu2() {
+		int op;
+		System.out.println("   				   * A Floresta Criptografada * \n   ");
+		System.out.println(
+				" 	                 A Floresta Criptografada é um mundo cultural brasileiro de RPG. ");
+		System.out.println(
+				"   Mundo baseado na cultura popular brasileira, expressando a identidade social da comunidade através de criações.");
+		System.out.println(
+				"          Jogo criado por: Caue Angelo, Gabriel Angeli, Gabriel Borges, Leonardo Lorena e Rafael Gomes.\n");
+
+		do {
+			System.out.println("  Escolha uma das opções abaixo: ");
+			System.out.println("       1 – Jogar ");
+			System.out.println("       2 – Intruções ");
+			System.out.println("       3 – Créditos ");
+			System.out.println("       4 - Sair");
+			System.out.println("  Digite a opção escolhida: ");
+			op = entrada.nextInt();
+
+			switch (op) {
+			case 1:
+
+				System.out.println("  Iniciando o jogo...\n");
+
+				break;
+			case 2:
+				System.out.println(
+						"  Crie seu personagem e faça suas próprias características de acordo com seu modo de jogo.\n"
+								+ "  Suas escolhas interferem diretamente no seu destino, pense bem antes de fazer sua escolha.\n "
+								+ " Selecione apenas os valores válidos.\n");
+
+				break;
+			case 3:
+				System.out.println(
+						"  Jogo criado por: Caue Angelo, Gabriel Angeli, Gabriel Borges, Leonardo Lorena e Rafael Gomes.\n"
+								+ "  Projeto Integrador: Desenvolvimento de Lógica.\n"
+								+ "  Centro Universitário Senac - Grupo 6.\n ");
+				break;
+			case 4:
+				System.out.println("  Saindo do jogo...");
+				System.exit(0);
+				break;
+
+			default:
+				System.out.println("  Valor Inválido, digite novamente.\n");
+
+			}
+		} while (op > 1);
+		return op;
+	}
+
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+
+			Scanner entrada = new Scanner(System.in);
+			ArrayList alternativasmula = new ArrayList();
+			ArrayList questaoiara = new ArrayList();
+			int inicio, nome;
+			String nomeP, simnao, personagem, floresta, regiao, caminho, respostamula;
+			boolean menu = true, menu2 = true, menu3 = true, menu4 = true, menu5 = true, menu6 = true;
+			String respostalobisomem; // essa variável string vai receber o valor que o usuário digitar ao tentar
+										// resolver o desafio do lobo na floresta.
+			boolean lobisomem = true; // boolean utilizada para sair do loop while na fase do lobisomem.
+			boolean curupira = false; // boolean utilizada para sair do loop while no desafio para se aliar ao
+										// curupira.
+			boolean escolhaajuda = true; // boolean utilizada para sair do loop while quando o usuario tem a opçao de se
+											// aliar ao curupira ou não.
+			String respostacurupira; // essa variável string vai receber o valor que o usuário digitar ao tentar
+										// resolver o desafio do curupira para se aliar a ele.
+			ArrayList questaocurupira = new ArrayList<String>(); // array list utilizada para "embaralhar" as perguntas do
+																	// desafio do curupira.
+			ArrayList questaolobisomem = new ArrayList<String>(); // array list utilizada para "embaralhar" as perguntas do
+																	// desafio do lobisomem.
+			int escolha; // int criado para receber o valor do usuário referente a resposta dele ao
+							// querer se aliar com o curupira.
+			boolean ervamate = false; // boolean para sair do looping do desafio da erva-mate
+			ArrayList alternativaservamate = new ArrayList();
+			String respostaervamate;
+			boolean cuca = false;
+			ArrayList alternativascuca = new ArrayList();
+			String respostacuca;
+			String resposta;
+			int i = 0;
+
+			menu2();
+
+			System.out.print("  Digite o nome do seu personagem: \n");
+			nomeP = entrada.next();
+
+			System.out.println("  Deseja que seu nome seja " + nomeP + "?");
+			System.out.println("  Digite SIM ou NAO ");
+			simnao = entrada.next();
+
+			while (menu = true) {
+				if (simnao.equalsIgnoreCase("SIM")) {
+					System.out.println("  Que belo nome " + nomeP + "!!!\n");
+					menu = false;
+					break;
+				} else if (simnao.equalsIgnoreCase("NAO")) {
+					System.out.println("  Que pena que não deseja ser " + nomeP + ", é um excelente nome.");
+					System.out.println("  Digite o nome do seu personagem novamente:\n ");
+					nomeP = entrada.next();
+					System.out.println("  Agora sim " + nomeP + ", esse nome é realmente melhor.");
+					System.out.println("  Deseja que seu nome seja " + nomeP + "?\n");
+					System.out.println("  Digite SIM ou NAO ");
+					simnao = entrada.next();
+
+				} else {
+					System.out.println("  Valor Inválido, digite novamente.");
+					System.out.println("  Deseja que seu nome seja " + nomeP + "?\n");
+					System.out.println("  Digite SIM ou NAO ");
+					simnao = entrada.next();
+
+				}
+			}
+
+			System.out.println("  Seu personagem será Homem ou Mulher? ");
+			System.out.println("  Digite HOMEM ou MULHER\n");
+			personagem = entrada.next();
+
+			while (menu2 = true) {
+
+				if (personagem.equalsIgnoreCase("Homem")) {
+					menu2 = false;
+					break;
+
+				} else if (personagem.equalsIgnoreCase("Mulher")) {
+					menu2 = false;
+					break;
+
+				} else {
+					System.out.println("  Comando inválido.\n ");
+					System.out.println("  Seu personagem será Homem ou Mulher? ");
+					System.out.println("  Digite HOMEM ou MULHER\n");
+					personagem = entrada.next();
+
+				}
+
+			}
+
+			System.out.println("  Escolha uma das regiões abaixo:\n");
+			System.out.println("  *Norte\n" + "  *Nordeste\n" + "   \n  Digite o nome da região para ler mais a respeito.");
+			regiao = entrada.next();
+			while (menu3 = true) {
+				if (regiao.equalsIgnoreCase("Nordeste")) {
+					System.out.println(" " + "     A Região Nordeste do Brasil apresenta diversas configurações quanto\r\n"
+							+ "  aos aspectos naturais dos principais elementos da natureza tais como\r\n"
+							+ "  relevo, vegetação, clima, hidrografia, devido a essas variações essa região foi regionalizada\r\n"
+							+ "  ou dividida em sub-regiões, são elas zona da mata, meio-norte, agreste e sertão.\r\n"
+							+ "  Clima tropical que possui características de temperaturas elevadas e altos índices pluviométricos.\r\n"
+							+ "  \n " + "  Você deseja que essa seja sua região natal??\n   "
+							+ "Digite SIM para escolher esta região ou NÃO para consultar outras: ");
+
+					simnao = entrada.next();
+					if ((simnao.equalsIgnoreCase("SIM"))) {
+						menu3 = false;
+						break;
+					} else if ((simnao.equalsIgnoreCase("NAO"))) {
+						System.out.println("  Escolha uma das regiões abaixo:\n");
+						System.out.println("  *Norte\n" + "  *Nordeste\n"
+								+ "   \n  Digite o nome da região para ler mais a respeito.");
+						regiao = entrada.next();
+
+					}
+
+					else {
+						System.out.println("  Digite um valor válido.\n");
+
+					}
+				} else if (regiao.equalsIgnoreCase("Norte")) {
+					System.out.println(" "
+							+ "     A região Norte é bastante conhecida por dois aspectos principais: é a maior região do Brasil\r\n"
+							+ "  em termos de extensão territorial e é a que concentra a maior biodiversidade\r\n"
+							+ "  graças à existência da Floresta Amazônica. Mais da metade dessa floresta está localizada no território brasileiro.\r\n"
+							+ "  Devido à presença da floresta, é na região Norte que percebemos a grande influência que a\r\n"
+							+ "  paisagem natural possui sobre as ocupações humanas no espaço geográfico. \r\n" + "  \n "
+							+ "  Você deseja que essa seja sua região natal??\n   "
+							+ "Digite SIM para escolher esta região ou NÃO para consultar outras: ");
+
+					simnao = entrada.next();
+					if ((simnao.equalsIgnoreCase("SIM"))) {
+						menu3 = false;
+						break;
+					} else if ((simnao.equalsIgnoreCase("NAO"))) {
+
+						System.out.println("  Escolha uma das regiões abaixo:\n");
+						System.out.println("  *Norte\n" + "  *Nordeste\n"
+								+ "   \n  Digite o nome da região para ler mais a respeito.");
+						regiao = entrada.next();
+
+					}
+
+				}
+
+				else {
+					System.out.println("  Digite um valor válido.\n");
+					System.out.println("  Escolha uma das regiões abaixo:\n");
+					System.out.println(
+							"  *Norte\n" + "  *Nordeste\n" + "   \n  Digite o nome da região para ler mais a respeito.");
+					regiao = entrada.next();
+				}
+
+			}
+			System.out.println("    Seja bem vindo " + nomeP + " à nossa Floresta, você está no centro do " + regiao + "."
+					+ " O centro do " + regiao + " é um lugar extremante encantador.\n" + "    \n    Habilidades: \n"
+					+ "    Força = 0 || Inteligência = 0 || Coragem = 0 || Sabedoria = 0 || Flexibilidade = 0\n");
+			System.out.println("\n" + nomeP + "-  Essa floresta me encanta mais cada dia que passa!  ");
+			System.out.println(nomeP + "-  Hoje o céu está tão lindo... O que você acha filha?  ");
+			System.out.println("Iara-  É... o dia ta lindo e o clima ensolarado.");
+			System.out.println(nomeP + "-  Você tá bem? To te achando meio pra baixo esses dias  ");
+			System.out.println(
+					"Iara-  Pai, eu não me sinto bem nessa floresta. De dia, ela é um lugar maravilhoso, mas a noite,"
+							+ " não sei o que acontece, vira um lugar cabreiro.");
+			System.out.println(nomeP + "-  Isso é coisa da sua cabeça, só existe nós dois nessa floresta  ");
+			System.out.println(
+					nomeP + "-  E o mais importante de tudo, enquanto eu estiver aqui, nada de mal acontecerá com você  ");
+			System.out.println("Iara-  Só nós?? Não é isso que eu vejo  ");
+			System.out.println("Iara-  Quando você vai dormir, eu ouço vozes e vejo coisas nesta floresta ");
+			System.out.println("Iara-  Eu acho, não, eu não acho, eu tenho certeza que tem algo nessa floresta ");
+			System.out.println("Iara-  Só você não ve... ");
+			System.out.println(nomeP + "-  Isso é sua imaginação  ");
+			System.out.println(nomeP + "-  Posso provar que você está errada, a noite vamos explorar esse mato  ");
+			System.out.println("\n  A noite fica fria nesta madrugada, como se algo estivesse por vir...");
+			System.out.println("  Mas como promessa é compromisso, " + nomeP + " e sua filha saíram na madrugada.\n");
+			System.out.println(nomeP + "- Juntou tudo o que precisa? Pegarei a vela e poderemos partir ");
+			System.out.println("Iara-  Sim, estou pronta.  ");
+			System.out.println("Iara-  Tem certeza pai? Quer realmente fazer isso?  ");
+			System.out.println(nomeP + "- Sim filha, as vezes precisamos mostrar o que é real e o que não é.\n ");
+			System.out.println(" ''Por vezes as pessoas não querem ouvir a verdade ");
+			System.out.println("   porque não desejam que as suas ilusões sejam destruídas.'' ");
+			System.out.println("                                      -Friedrich Nietzsche.\n");
+			System.out.println("  Você e sua filha finalmente chega ao centro da floresta.");
+			System.out.println("  Está tudo muito calmo, até demais...\n");
+			System.out.println(nomeP + "- Pronto, até que enfim chegamos ");
+			System.out.println(nomeP + "- Vamos arrumar nossas coisas para passar a noite aqui ");
+			System.out.println("Iara-  Esse lugar me da arrepios, acho que foi uma péssima ideia dormir aqui  ");
+			System.out.println(
+					nomeP + "- Relaxa filha, aqui vai ser bom pra você, faz bem descontrair um pouco com a natureza\n ");
+			System.out.println("  Com toda calmaria da floresta, você e sua filha acaba adormecendo rápido");
+			System.out.println("  Que noite calma! É tão bom dormir sem barulho nenhu... CRACCC CRACCC!!\n");
+			System.out.println(nomeP + "- Filha, que barulho é esse? ");
+			System.out.println(nomeP + "- Iara? Pode parar com essa brincadeira de mal gosto ");
+			System.out.println(nomeP + "- Iara? Iaraaa???????????? ");
+			System.out.println(nomeP + "- Pela mor de deus, alguém me ajuda!!\n ");
+			System.out.println("  Parece que sua filha estava certa...");
+			System.out.println("  O seu desespero começou a bater, até que uma luz no meio da floresta surge ");
+			System.out.println("  Vindo lentamente em seu cavalo, o negrinho do pastoreio aparece para te ajudar\n");
+			System.out.println(nomeP + "- Quem é você? ");
+			System.out.println("Negrinho do Pastoreio- Parece que você está procurando algo, vim aqui para te ajudar.");
+			System.out.println(nomeP + "- Como posso confiar ? Você não me diz seu nome ");
+			System.out.println(
+					"Negrinho do Pastoreio- Sua filha foi envenenada e levada pela Cuca, eu vi tudo enquanto você estava dormindo");
+			System.out.println(nomeP + "- E você não fez nada?? que tipo de pessoa vc é ?! ");
+			System.out.println(
+					"Negrinho do Pastoreio- Você precisa encontrar a Erva Caá-Yaríi, ela irá salvar a sua filha. ");
+			System.out.println(
+					"Negrinho do Pastoreio- Siga à frente na floresta, e você encontrará uma pessoa que te guiará até sua filha.\n ");
+
+			while (menu = true) {
+
+				System.out.println("  Você possui três caminhos em sua frente:");
+				System.out.println("  Escolha com cuidado e sabedora\n");
+				System.out.println("  CAMINHOS: ESQUERDA/MEIO/DIREITA");
+				caminho = entrada.next();
+
+				if (caminho.equalsIgnoreCase("esquerda")) {
+					menu = false;
+					break;
+				}
+
+				else if (caminho.equalsIgnoreCase("meio")) {
+					menu = false;
+					break;
+				} else if (caminho.equalsIgnoreCase("direita")) {
+					menu = false;
+					break;
+				} else {
+					System.out.println("  Digite um comando válido.\n");
+
+				}
+
+			}
+
+			System.out.println("\nSaci- Ora ora, o que temos por aqui!");
+			System.out.println("Saci- É muito dificil encontrar alguem nesse bosque");
+			System.out.println("Saci- Por que andas por aqui?");
+			System.out.println(nomeP + "- Estou a procura da Cuca, ela envenenou e levou minha filha");
+			System.out.println("Saci- Essa Cuca viu, sempre causando problemas");
+			System.out.println(nomeP + "- Você conhece ela? ");
+			System.out.println("Saci- Sim, porém você precisa passar pelo caminho da mula sem cabeça");
+			System.out.println("Saci- Se você quiser, eu posso te ajudar\n");
+			while (menu = true) {
+				System.out.println("  Você aceita a ajuda do Saci?");
+				System.out.println("  Digite SIM ou NAO");
+				simnao = entrada.next();
+
+				if (simnao.equalsIgnoreCase("sim")) {
+					System.out.println("Saci- Ótima escolha, você não conseguiria passar sozinho...\n");
+					System.out.println("  Escolher aliados é uma ótima forma de estratégia!");
+					System.out.println(
+							"   Força = 0 || Inteligência = +20 || Coragem = 0 || Sabedoria = +10 || Flexibilidade = 0");
+					int aliados = 1;
+					int inteligencia = 20;
+					int sabedoria = 10;
+					System.out.println("Saci- Antes que a gente chegue na mula sem cabeça, preciso te avisar...");
+					System.out.println(
+							"Saci- ...A mula é só o primeiro de muitos que você irá enfrentar na sua trajetória\n");
+					System.out.println("    Você está seguindo o Saci pela floresta e encontra a Mula sem cabeça\n ");
+					System.out.println("\nMula - Saci? Você aqui novamente? e pelo visto trouxe alguém");
+					System.out.println("Saci- Mula, preciso da sua ajuda para encontrar a criança perdida");
+					System.out.println("Saci- Poderia me dizer qual caminho é o correto?");
+					System.out.println("Mula - As coisas não são fáceis assim, eu necessito de uma ajuda");
+					System.out.println("Mula - Encontrei um pergaminho encriptado contendo informações que eu preciso");
+					System.out.println("Mula - Decifre o código e eu deixarei vocês prosseguirem.\n");
+
+					alternativasmula.add("6");
+					alternativasmula.add("5");
+					alternativasmula.add("7");
+					alternativasmula.add("3");
+					alternativasmula.add("2");
+
+					do {
+						Collections.shuffle(alternativasmula);
+						System.out.println("   RESOLVA A EQUAÇÃO A SEGUIR");
+						System.out.println("   DETERMINE O VALOR DE X");
+						System.out.println("   *  18x - 43 = 65  * \n");
+						System.out.println("A- " + alternativasmula.get(0));
+						System.out.println("B- " + alternativasmula.get(1));
+						System.out.println("C- " + alternativasmula.get(2));
+						System.out.println("D- " + alternativasmula.get(3));
+						System.out.println("E- " + alternativasmula.get(4));
+						System.out.println("  \n*POR VOCÊ TER ACEITADO A AJUDA DO SACI, ELE TE AJUDARÁ COM O DESAFIO*");
+						System.out.println("  * SACI DICA  -  X>5*\n");
+						respostamula = entrada.next();
+						switch (respostamula.toLowerCase()) {
+						case "a":
+							if (alternativasmula.get(0).equals("6")) {
+								System.out.println("Mula- Até que você é inteligente...");
+								System.out.println("Mula- Não conseguia de jeito nenhum!\n");
+								System.out.println(
+										"   Você recebeu +10 de Coragem e +10 de inteligencia por enfrentar e ajudar a Mula");
+								System.out.println(
+										"   Força = 0 || Inteligência = +30 || Coragem = +10 || Sabedoria = 10 || Flexibilidade = 0");
+								menu = false;
+
+							} else {
+								System.out.println("Mula- Acho que o nome Mula tem que ser pra outro também...\n");
+
+							}
+							break;
+
+						case "b":
+							if (alternativasmula.get(1).equals("6")) {
+								System.out.println("Mula- Até que você é inteligente...");
+								System.out.println("Mula- Não conseguia de jeito nenhum!\n");
+								System.out.println(
+										"   Você recebeu +10 de Coragem e +10 de inteligencia por enfrentar e ajudar a Mula");
+								System.out.println(
+										"   Força = 0 || Inteligência = +30 || Coragem = +10 || Sabedoria = 10 || Flexibilidade = 0");
+								menu = false;
+
+							} else {
+								System.out.println("Mula- Acho que o nome Mula tem que ser pra outro também...\n");
+
+							}
+							break;
+
+						case "c":
+							if (alternativasmula.get(2).equals("6")) {
+								System.out.println("Mula- Até que você é inteligente...");
+								System.out.println("Mula- Não conseguia de jeito nenhum!\n");
+								System.out.println(
+										"   Você recebeu +10 de Coragem e +10 de inteligencia por enfrentar e ajudar a Mula");
+								System.out.println(
+										"   Força = 0 || Inteligência = +30 || Coragem = +10 || Sabedoria = 10 || Flexibilidade = 0");
+								menu = false;
+
+							} else {
+								System.out.println("Mula- Acho que o nome Mula tem que ser pra outro também...\n");
+
+							}
+							break;
+
+						case "d":
+							if (alternativasmula.get(3).equals("6")) {
+								System.out.println("Mula- Até que você é inteligente...");
+								System.out.println("Mula- Não conseguia de jeito nenhum!\n");
+								System.out.println(
+										"   Você recebeu +10 de Coragem e +10 de inteligencia por enfrentar e ajudar a Mula");
+								System.out.println(
+										"   Força = 0 || Inteligência = +30 || Coragem = +10 || Sabedoria = 10 || Flexibilidade = 0");
+								menu = false;
+
+							} else {
+								System.out.println("Mula- Acho que o nome Mula tem que ser pra outro também...\n");
+
+							}
+							break;
+
+						case "e":
+							if (alternativasmula.get(4).equals("6")) {
+								System.out.println("Mula- Até que você é inteligente...");
+								System.out.println("Mula- Não conseguia de jeito nenhum!\n");
+								System.out.println(
+										"   Você recebeu +10 de Coragem e +10 de inteligencia por enfrentar e ajudar a Mula");
+								System.out.println(
+										"   Força = 0 || Inteligência = +30 || Coragem = +10 || Sabedoria = 10 || Flexibilidade = 0");
+								menu = false;
+
+							} else {
+								System.out.println("Mula- Acho que o nome Mula tem que ser pra outro também...\n");
+
+							}
+							break;
+
+						default:
+							System.out.println("  Digite um valor válido.\n");
+							menu = true;
+						}
+
+					} while (menu == true);
+
+					menu = false;
+					break;
+				} else if (simnao.equalsIgnoreCase("nao")) {
+					System.out.println("Saci- Bom, te desejo boa sorte!");
+					System.out.println("Saci- Mas já te aviso, não será nada fácil...");
+					int aliados = 0;
+					int inteligencia = 0;
+					int sabedoria = 0;
+
+					System.out.println("\n   Não aceitar ajuda é uma péssima forma de estratégia!");
+					System.out.println(
+							"   Força = 0 || Inteligência = 0 || Coragem = 0 || Sabedoria = 0 || Flexibilidade = 0\n");
+
+					System.out.println("Saci- Antes que a gente chegue na mula sem cabeça, preciso te avisar...");
+					System.out.println(
+							"Saci- ...A mula é só o primeiro de muitos que você irá enfrentar na sua trajetória\n");
+					System.out.println("    Você está seguindo pela floresta e encontra a Mula sem cabeça\n ");
+					System.out.println("\nMula - Quem é você ? Como ousa vir aqui sozinho?");
+					System.out.println(nomeP + "- Mula, preciso da sua ajuda para encontrar minha filha");
+					System.out.println(nomeP + "- Poderia me dizer qual caminho é o correto?");
+					System.out.println("Mula - As coisas não são fáceis assim, eu necessito de uma ajuda");
+					System.out.println("Mula - Encontrei um pergaminho encriptado contendo informações que eu preciso");
+					System.out.println("Mula - Decifre o código e eu deixarei você prosseguir.\n");
+
+					alternativasmula.add("6");
+					alternativasmula.add("5");
+					alternativasmula.add("7");
+					alternativasmula.add("3");
+					alternativasmula.add("2");
+
+					do {
+						Collections.shuffle(alternativasmula);
+						System.out.println("   RESOLVA A EQUAÇÃO A SEGUIR");
+						System.out.println("   DETERMINE O VALOR DE X");
+						System.out.println("   *  18x - 43 = 65  * \n");
+						System.out.println("A- " + alternativasmula.get(0));
+						System.out.println("B- " + alternativasmula.get(1));
+						System.out.println("C- " + alternativasmula.get(2));
+						System.out.println("D- " + alternativasmula.get(3));
+						System.out.println("E- " + alternativasmula.get(4));
+
+						respostamula = entrada.next();
+						switch (respostamula.toLowerCase()) {
+						case "a":
+							if (alternativasmula.get(0).equals("6")) {
+								System.out.println("Mula- Até que você é inteligente...");
+								System.out.println("Mula- Não conseguia de jeito nenhum!\n");
+								System.out.println(
+										"   Você recebeu +10 de Coragem e +10 de inteligencia por enfrentar e ajudar a Mula");
+								System.out.println(
+										"   Força = 0 || Inteligência = +10 || Coragem = +10 || Sabedoria = 0 || Flexibilidade = 0");
+								menu = false;
+
+							} else {
+								System.out.println("Mula- Acho que o nome Mula tem que ser pra outro também...\n");
+
+							}
+							break;
+
+						case "b":
+							if (alternativasmula.get(1).equals("6")) {
+								System.out.println("Mula- Até que você é inteligente...");
+								System.out.println("Mula- Não conseguia de jeito nenhum!\n");
+								System.out.println(
+										"   Você recebeu +10 de Coragem e +10 de inteligencia por enfrentar e ajudar a Mula");
+								System.out.println(
+										"   Força = 0 || Inteligência = +10 || Coragem = +10 || Sabedoria = 0 || Flexibilidade = 0");
+								menu = false;
+
+							} else {
+								System.out.println("Mula- Acho que o nome Mula tem que ser pra outro também...\n");
+
+							}
+							break;
+
+						case "c":
+							if (alternativasmula.get(2).equals("6")) {
+								System.out.println("Mula- Até que você é inteligente...");
+								System.out.println("Mula- Não conseguia de jeito nenhum!\n");
+								System.out.println(
+										"   Você recebeu +10 de Coragem e +10 de inteligencia por enfrentar e ajudar a Mula");
+								System.out.println(
+										"   Força = 0 || Inteligência = +10 || Coragem = +10 || Sabedoria = 0 || Flexibilidade = 0");
+								menu = false;
+
+							} else {
+								System.out.println("Mula- Acho que o nome Mula tem que ser pra outro também...\n");
+
+							}
+							break;
+
+						case "d":
+							if (alternativasmula.get(3).equals("6")) {
+								System.out.println("Mula- Até que você é inteligente...");
+								System.out.println("Mula- Não conseguia de jeito nenhum!\n");
+								System.out.println(
+										"   Você recebeu +10 de Coragem e +10 de inteligencia por enfrentar e ajudar a Mula");
+								System.out.println(
+										"   Força = 0 || Inteligência = +10 || Coragem = +10 || Sabedoria = 0 || Flexibilidade = 0");
+								menu = false;
+
+							} else {
+								System.out.println("Mula- Acho que o nome Mula tem que ser pra outro também...\n");
+
+							}
+							break;
+
+						case "e":
+							if (alternativasmula.get(4).equals("6")) {
+								System.out.println("Mula- Até que você é inteligente...");
+								System.out.println("Mula- Não conseguia de jeito nenhum!\n");
+								System.out.println(
+										"   Você recebeu +10 de Coragem e +10 de inteligencia por enfrentar e ajudar a Mula");
+								System.out.println(
+										"   Força = 0 || Inteligência = +10 || Coragem = +10 || Sabedoria = 0 || Flexibilidade = 0");
+								menu = false;
+
+							} else {
+								System.out.println("Mula- Acho que o nome Mula tem que ser pra outro também...\n");
+
+							}
+							break;
+
+						default:
+							System.out.println("  Digite um valor válido.\n");
+							menu = true;
+						}
+
+					} while (menu == true);
+
+					break;
+				} else {
+					System.out.println("  Digite um comando válido.\n");
+				}
+			}
+
+			System.out.println("Após atravessar a floresta e ter escolhido seguir o caminho mais luminoso... \n"
+					+ "Você acaba de chegar a uma costa, um lugar onde o sol está forte, onde há grandes rochas e um vasto mar brilhante. \n"
+					+ "Aproximando do mar, você consegue ver de longe uma mulher muito bela, com longos cabelos pretos e olhos castanhos. \n"
+					+ "Assim que olha para ela, ela se vira e começa a caminhar em sua direção e automaticamente você entra em estado de ENCANTO.\n");
+			System.out.println("IARA: Por que está olhando fixamente para mim? Está interessado(a) em mim?");
+			System.out.println("IARA: Prazer " + nomeP + ", meu nome é Iara, sou considerada a Mãe d'Água... \n");
+			System.out.println(nomeP + ": Olá Iara...");
+			System.out.println("IARA: Você aparece um pouco acanhado, me conte o que busca por aqui...");
+			System.out.println(nomeP + ": Estou atrás da minha filha... Preciso encontrar ela.");
+			System.out.println(
+					"IARA: Entendo... Mas calma lá, deixa eu te contar um pouco sobre mim... Parece que está interessado em saber hahaha! \n");
+			System.out.println("IARA: Sente-se e escute! \n");
+			System.out.println(
+					"Imediatamente quando IARA diz esta frase, você se senta na areia, na frente dela enquanto ela te rodeia e começa a contar a história... \n"
+							+ "IARA: Tive uma história de vida bem complicada, onde até meus próprios irmãos tentaram me matar por causa de inveja. \n"
+							+ "IARA: Eu tive que lutar pela minha sobrevivência contra minha própria família! Infelizmente acabou gerando muitas mortes... \n"
+							+ "IARA: Além do mais, como punição, meu pai me lançou ao mar para morrer, porém sorte que os peixes estavam ao meu lado e me permitiram viver mais uma vez. \n"
+							+ "IARA: Me transformaram no que sou hoje, uma mulher metade humana e metade peixe... Enfim, acredito que acabei contando bastante sobre minha história; \n"
+							+ "IARA: Mas eu entendo que o real motivo de você estar aqui. É para superar o meu desafio. \n");
+
+			System.out.println("IARA: Pois bem... Vamos começar então com o desafio... \n");
+
+			questaoiara.add("20");
+			questaoiara.add("24");
+			questaoiara.add("48");
+			questaoiara.add("12");
+			questaoiara.add("25");
+
+			do {
+				Collections.shuffle(questaoiara);
+				Collections.shuffle(questaoiara);
+				Collections.shuffle(questaoiara);
+
+				System.out.println(
+						"Helena e Giovanni são irmãos gêmeos. A metade da idade de Helena mais um terço da idade de Giovanni, é igual 20. \n"
+								+ "Qual a soma da idade dos dois irmãos? \n");
+				System.out.println("A) " + questaoiara.get(0));
+				System.out.println("B) " + questaoiara.get(1));
+				System.out.println("C) " + questaoiara.get(2));
+				System.out.println("D) " + questaoiara.get(3));
+				System.out.println("E) " + questaoiara.get(4));
+				resposta = entrada.next();
+
+				switch (resposta.toUpperCase()) {
+				case "A":
+					if (questaoiara.get(0).equals("20")) {
+						System.out.println(
+								"IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
+										+ "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
+										+ "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n"
+										+ "© -- Fórmula de Bhaskara -- © \n" + "Delta: b^2 - 4*a*c \n"
+										+ "Raízes: x = (-b +/- √Delta) / 2*a");
+						i = 4;
+					} else {
+						System.out.println("Resposta incorreta!");
+					}
+					break;
+				case "B":
+					if (questaoiara.get(1).equals("20")) {
+						System.out.println(
+								"IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
+										+ "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
+										+ "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n"
+										+ "© -- Fórmula de Bhaskara -- © \n" + "Delta: b^2 - 4*a*c \n"
+										+ "Raízes: x = (-b +/- √Delta) / 2*a");
+						i = 4;
+					} else {
+						System.out.println("Resposta incorreta!");
+					}
+					break;
+				case "C":
+					if (questaoiara.get(2).equals("20")) {
+						System.out.println(
+								"IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
+										+ "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
+										+ "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n"
+										+ "© -- Fórmula de Bhaskara -- © \n" + "Delta: b^2 - 4*a*c \n"
+										+ "Raízes: x = (-b +/- √Delta) / 2*a");
+						i = 4;
+					} else {
+						System.out.println("Resposta incorreta!");
+					}
+					break;
+				case "D":
+					if (questaoiara.get(3).equals("20")) {
+						System.out.println(
+								"IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
+										+ "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
+										+ "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n"
+										+ "© -- Fórmula de Bhaskara -- © \n" + "Delta: b^2 - 4*a*c \n"
+										+ "Raízes: x = (-b +/- √Delta) / 2*a");
+						i = 4;
+					} else {
+						System.out.println("Resposta incorreta!");
+					}
+					break;
+				case "E":
+					if (questaoiara.get(4).equals("20")) {
+						System.out.println(
+								"IARA: Parabéns! Pelo visto, você acertou a resposta e merece ganhar uma recompensa... \n"
+										+ "IARA: Te darei uma informação que poderá ser útil ou não, para você resolver os desafios daqui em diante! \n"
+										+ "IARA: A dica que posso te dar é uma fórmula, ela é bem específica e popular ao mesmo tempo, às vezes pode te ajudar em algum desafio futuro... Quem sabe... \n"
+										+ "© -- Fórmula de Bhaskara -- © \n" + "Delta: b^2 - 4*a*c \n"
+										+ "Raízes: x = (-b +/- √Delta) / 2*a");
+						i = 4;
+					} else {
+						System.out.println("Resposta incorreta! \n");
+					}
+					break;
+				default:
+					System.out.println("Opção inválida! Responda apenas com as opções indicadas! \n");
+					break;
+				}
+				i++;
+			} while (i < 3);
+
+			if (i == 3) {
+				System.out.println("IARA: Que pena! Parece que você não conseguiu advinhar a resposta correta... \n"
+						+ "IARA: Mas não se preocupe... Desejo muita boa sorte para superar os desafios daqui em diante. \n");
+			}
+
+			System.out.println("Após passar pelo desafio da IARA, vem novamente em sua mente... \n "
+					+ "Lembranças de certos momentos com sua filha, momentos felizes que passaram juntos, \n"
+					+ "fornecendo mais motivações para continuar enfrentando todos os demais desafios.");
+			System.out.println("Antes de ir... Você olha para trás e vê IARA caminhando de volta ao mar, \n"
+					+ "retornando ao seu ambiente. Liberando sua passagem, permitindo com que você avance adiante...");
+
+			System.out.println("\n         Seguindo adiante, " + nomeP
+					+ " sabe que seu próximo desafio se encontra na Floresta. Em seu caminho ele encontra mais uma criatura peculiar (fala as caracteristicas do curupira). Ao se aproximar ele diz: \n");
+			System.out.println(nomeP
+					+ "- Eae ? Qual o seu nome ? Pode me ajudar ? Você sabe o caminho mais curto da floresta para chegar até a cuca ? Minha filha foi sequestrada, preciso chegar o mais rápido possível!");
+			System.out.println(
+					"Criatura misteriosa- Meu nome é curupira, sou o guardião das nossas florestas. Eu sei sim um caminho mais curto, porém você precisará passar pelo Lobisomem. Caso contrário demorará 4 dias para atravessar a floresta.");
+			System.out.println(
+					"Curupira- O lobisomem é uma dos monstros mais perigosos da região, pense bem na sua escolha.");
+			System.out.println(nomeP + "- Estou vendo que você possui algumas armas, pode me empresta-las ?");
+			System.out.println(
+					"Curupira- Já que mencionou, eu posso te ajudar a derrota-lo, já fiz isso uma vez. Mas antes preciso de um favor em troca. O que acha ?\n");
+	// dialogo entre curupira e personagem principal
+			do {
+				System.out.println("          Você aceita a ajuda de Curupira ? Lembre-se que você não o conhece...\n");
+				System.out.println("1 - Aceitar ajuda.");
+				System.out.println("2 - Não aceitar ajuda. \n");
+				escolha = entrada.nextInt();
+	// momento em que o usuario pode opter entre se aliar com curupira ou não
+				switch (escolha) {
+
+				case 1:
+					System.out.println(
+							"Curupira- Ótima escolha. A alguns dias atrás eu encontrei um caçador tentando abater um veado. "
+									+ "Depois de derrota-lo e amarrar ele, eu roubei seus pertences e peguei esse celular, só que ele parece usar uma tecnologia mais avançada para mim."
+									+ "Pode desbloquear ele para mim conseguir resetar e vender ? Se fizer isso eu te ajudo com o problema da floresta...\n");
+
+					questaocurupira.add("1110(decimal)"); // resposta correta curupira
+					questaocurupira.add("1000(decimal)");// adicionando as questoes atraves de array list.
+					questaocurupira.add("15000(decimal)");
+					questaocurupira.add("1200(decimal)");
+					questaocurupira.add("1310(decimal)");
+
+					do { // inicio de um loop do while para o desafio do curupira.
+						Collections.shuffle(questaocurupira);// collections usado para perguntas sempre serem embaralhadas
+																// ao executar o
+																// codigo.
+						Collections.shuffle(questaocurupira);
+
+						System.out.println(
+								"Resolva o seguinte problema: 1000010001(binario) + 226(octal) + 14B(hexa) + 100(decimal) = x(decimal)");
+						System.out.println("A - " + questaocurupira.get(0));// usando
+																			// as
+																			// questoes
+																			// que
+																			// foram
+																			// adicionadas
+																			// e
+																			// dando
+																			// valor
+																			// a
+																			// elas.
+						System.out.println("B - " + questaocurupira.get(1));
+						System.out.println("C - " + questaocurupira.get(2));
+						System.out.println("D - " + questaocurupira.get(3));
+						System.out.println("E - " + questaocurupira.get(4) + "\n");
+						System.out.println("Qual o valor de X em decimal ?");
+						respostacurupira = entrada.next();
+
+						switch (respostacurupira.toLowerCase()) { // switch para respostas do desafio do curupira.
+
+						case "a":
+							if (questaocurupira.get(0).equals("1110(decimal)")) { // caso o usuario acerte a questao e ela
+																					// seja a letra a.
+
+								System.out.println(
+										"Curupira- Nossa, não acredito que você conseguiu, vou te ajudar na floresta... \n");
+								System.out.println("       Você está seguindo sua jornada para floresta...");
+								System.out.println(
+										"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+								System.out.println(
+										"       O barulho fica cada vez mais alto, você olha para o Curupira e percebe que sua feição não muda, parece até que eles está acostumado com aquilo. \n");
+								System.out.println(
+										nomeP + "- Você disse que ja tinha derrotado o Lobisomem, como foi isso ?");
+								System.out.println(
+										"Curupira- Há alguns anos tivemos um problema em comum, depois batalhar com ele sei que ele ficou muito fraco. Hoje em dia só ouço boatos que ele voltou para floresta e está mais forte do que antes."
+												+ "Mas desde então decidimos não entrarmos no caminho um do outro, por isso nunca mais nos encontramos...\n");
+								System.out.println("SCRHHHHH!!!!!!\n");
+								System.out.println(
+										"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala: \n");
+								System.out.println(
+										"Lobisomem- Quanto tempo em Curupira, pensei que você ja tivesse desistido desse lugar...");
+								System.out.println(
+										"Curupira- Eu que pensei que você não iria mais voltar depois de eu te expulsar, mas pelo visto da pra perceber que você não mudou mesmo.");
+								System.out.println(
+										"Curupira- Mas enfim, não quero problemas com você, a gente sabe como isso termina... Queria pedir para você deixar esse rapaz passar, a filha dele foi sequestrada pela cuca e ele precisa encontrar a Eva mate o quanto antes"
+												+ "para derrotar a cuca e recuperar sua filha.");
+								System.out.println(
+										"Lobisomem- HAHAHAHAHA! A Cuca já havia me avisado que ele viria por aqui... E ela me pagou muito mais para leva-lo para ela também, então peço que não entre no meu caminho novamente, Pé torto!!");
+								System.out.println("Curupira- É... você não aprendeu nada mesmo.");
+								System.out.println(nomeP
+										+ "- Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+								System.out.println(
+										"Lobisomem- Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+												+ "Eu devo a ela!");
+								System.out.println(
+										"Curupira- Vou fazer você se arrepender de sua escolha seu lobo mimado. \n");
+								System.out.println(
+										"      A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio."
+												+ "Lembre-se que você aceitou ajudar o curupira, então você possui uma dica para resolver o problema.");
+								System.out.println("      PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");
+	// dialogo entre curupira, lobisomem e personagem principal caso o personagem
+	// acerte o desafio do curupira e se alie a ele.
+
+								questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+								questaolobisomem.add("Resultado da soma: 26");// adicionando as questoes atraves de array
+																				// list.
+								questaolobisomem.add("Resultado da soma: 28");
+								questaolobisomem.add("Resultado da soma: 21");
+								questaolobisomem.add("Resultado da soma: 22");
+
+								do { // inicio do loop do while para o desafio do lobisomem caso o usario tenha
+										// conseguido se aliar ao curupira.
+									Collections.shuffle(questaolobisomem);// embaralhando as alternativas do desafio do
+																			// lobisomem.
+									Collections.shuffle(questaolobisomem);
+
+									System.out.println(
+											"DESAFIO: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+													+ "Equação1 2°grau: 3x² - 27 = 0"
+													+ "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+													+ "Resposta = Resultado positivo equação1 + resultado equação2\n");
+									System.out.println(
+											"   DICA 1 DO CURUPIRA!!!!! Lembre-se que uma equação de 2°grau pode possuir um x negativo e uma x positivo, o desafio pede apenas a soma dos resultados positivos.");
+									System.out.println(
+											"   DICA 2 DO CURUPIRA!!! Lembre-se do que é MMC (mínimo múltiplo comum) que é o menor número, também inteiro, que é múltiplo de todos esses números ao mesmo tempo. "
+													+ "Por exemplo, o MMC entre 2 e 12 é 12, pois os múltiplos de 2 são 2, 4, 6, 8, 10, 12… e os de 12 são: 12, 24, …"
+													+ "Isso pode ser útil para resolver essa questão...\n"); // desafio
+																												// do
+																												// lobisomem
+																												// com
+																												// a
+																												// dica
+																												// do
+																												// curupira
+																												// caso
+																												// o
+																												// personagem
+																												// principal
+																												// tenha
+																												// se
+																												// aliado.
+									System.out.println("A - " + questaolobisomem.get(0));// collections usado para perguntas
+																							// sempre serem embaralhadas ao
+																							// executar o codigo.
+									System.out.println("B - " + questaolobisomem.get(1));
+									System.out.println("C - " + questaolobisomem.get(2));
+									System.out.println("D - " + questaolobisomem.get(3));
+									System.out.println("E - " + questaolobisomem.get(4) + "\n");
+									System.out.println("O resultado da soma das equações é: ");
+									respostalobisomem = entrada.next();
+
+									switch (respostalobisomem.toLowerCase()) { // switch para repostas do desafio do
+																				// lobisomem
+
+									case "a":
+										if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso seja a letra
+																										// a.
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// não
+													// seja.
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "b": // caso
+												// sej
+												// a
+												// aletra
+												// b
+										if (questaolobisomem.get(1).equals("Resultado da soma: 24")) {
+											System.out.println(
+													"     Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"     Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "c": // caso
+												// seja
+												// a
+												// letra
+												// c
+										if (questaolobisomem.get(2).equals("Resultado da soma: 24")) {
+											System.out.println(
+													"     Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"     Você errou, concentre-se e tente novamente!");
+											 // função
+															// utilizada
+															// caso o
+															// usuario erre
+															// a resposta
+															// ele terá que
+															// iniciar o
+															// codigo denovo
+															// pois deu
+															// gamer over.
+										}
+										break;
+									case "d": // caso seja a letra d
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) {
+											System.out.println(
+													"     Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"     Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "e": // caso
+												// seja
+												// a
+												// letra
+												// e
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) {
+											System.out.println(
+													"     Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"     Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									default: // se
+												// o
+												// usuario
+												// digitar
+												// alguma
+												// opçao
+												// sem
+												// ser
+												// a,
+												// b,
+												// c,
+												// d
+												// ou
+												// e
+										System.out.println(
+												"         Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+										lobisomem = true;
+									}
+								} while (lobisomem == true);
+
+								curupira = true;
+							} else { // caso nao seja a letra a
+
+								System.out.println(
+										"\n   Curupira- Pensei que você fosse mais inteligente. Vou pedir a ajuda de outra pessoa, pode seguir seu caminho sozinho. \n");
+								System.out.println("       Você está seguindo sua jornada para floresta sozinho...");
+								System.out.println(
+										"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+								System.out.println("       O barulho fica cada vez mais alto. \n");
+								System.out.println(nomeP + "- Isso não me cheira nada bem...\n");
+								System.out.println("SCRHHHHH!!!!!!\n");
+								System.out.println(
+										"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala: \n");
+								System.out.println("Lobisomem- Eu estava esperando por você! HAHAHAHA...");
+								System.out.println(nomeP
+										+ "- Voce deve ser o Lobisomem do qual me avisaram... Pode me ajudar ? Preciso encontrar Eva mate para resgatar minha filha que está com a Cuca.");
+								System.out.println(
+										"Lobisomem- HAHAHAHAHA! A Cuca já havia me avisado que viria por aqui... E ela me pagou muito mais para leva-lo para ela, eu aconselho você a ir do jeito mais facíl para não se machucar...");
+								System.out.println(nomeP
+										+ "- Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+								System.out.println(
+										"Lobisomem- Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+												+ "Eu devo a ela! \n");
+								System.out.println("       O que o Lobisomem não sabe é que " + nomeP
+										+ " tem habilidades especiais. \n");
+								System.out.println(nomeP
+										+ "- Eu não quero confusão, mas farei de tudo para chegar até minha menina... Nem você vai me parar!\n");
+								System.out.println(
+										"       A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio.");
+								System.out.println("       PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");// dialogo
+																														// do
+																														// personagem
+																														// principal
+																														// com
+																														// o
+																														// lobisomem
+																														// mas
+																														// sem
+																														// o
+																														// curupira
+																														// pois
+																														// ele
+																														// nao
+																														// conseguiu
+																														// se
+																														// aliar
+
+								questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+								questaolobisomem.add("Resultado da soma: 26");
+								questaolobisomem.add("Resultado da soma: 28");
+								questaolobisomem.add("Resultado da soma: 21");
+								questaolobisomem.add("Resultado da soma: 22");
+
+								do {
+									Collections.shuffle(questaolobisomem);// embaralhar alternativas
+									Collections.shuffle(questaolobisomem);
+
+									System.out.println(
+											"DESAFIO: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+													+ "Equação1 2°grau: 3x² - 27 = 0"
+													+ "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+													+ "Resposta = Resultado positivo equação1 + resultado equação2\n"); // desafio
+																														// sem
+																														// a
+																														// dica
+																														// do
+																														// curupira
+									System.out.println("A - " + questaolobisomem.get(0));
+									System.out.println("B - " + questaolobisomem.get(1));
+									System.out.println("C - " + questaolobisomem.get(2));
+									System.out.println("D - " + questaolobisomem.get(3));
+									System.out.println("E - " + questaolobisomem.get(4) + "\n");
+									System.out.println("O resultado da soma das equações é: ");
+									respostalobisomem = entrada.next();
+
+									switch (respostalobisomem.toLowerCase()) {
+
+									case "a":
+										if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso seja a letra
+																										// a
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "b":
+										if (questaolobisomem.get(1).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// b
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "c":
+										if (questaolobisomem.get(2).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// c
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "d":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// d
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "e":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// e
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									default: // se
+												// o
+												// usuario
+												// digitar
+												// alguma
+												// alternativa
+												// que
+												// nao
+												// tenha
+												// sido
+												// apresentada
+										System.out.println(
+												"           Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+										lobisomem = true;
+									}
+								} while (lobisomem == true);
+
+								curupira = true;
+							}
+							break;
+
+						case "b":
+							if (questaocurupira.get(1).equals("1110(decimal)")) { // caso seja a letra b ele vai se aliar ao
+																					// curupira
+
+								System.out.println(
+										"Curupira- Nossa, não acredito que você conseguiu, vou te ajudar na floresta... \n ");
+								System.out.println("       Você está seguindo sua jornada para floresta...");
+								System.out.println(
+										"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+								System.out.println(
+										"       O barulho fica cada vez mais alto, você olha para o Curupira e percebe que sua feição não muda, parece até que eles está acostumado com aquilo. \n");
+								System.out.println(
+										nomeP + "- Você disse que ja tinha derrotado o Lobisomem, como foi isso ?");
+								System.out.println(
+										"Curupira- Há alguns anos tivemos um problema em comum, depois batalhar com ele sei que ele ficou muito fraco. Hoje em dia só ouço boatos que ele voltou para floresta e está mais forte do que antes."
+												+ "Mas desde então decidimos não entrarmos no caminho um do outro, por isso nunca mais nos encontramos...\n");
+								System.out.println("SCRHHHHH!!!!!!\n");
+								System.out.println(
+										"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala: \n");
+								System.out.println(
+										"Lobisomem- Quanto tempo em Curupira, pensei que você ja tivesse desistido desse lugar...");
+								System.out.println(
+										"Curupira- Eu que pensei que você não iria mais voltar depois de eu te expulsar, mas pelo visto da pra perceber que você não mudou mesmo.");
+								System.out.println(
+										"Curupira- Mas enfim, não quero problemas com você, a gente sabe como isso termina... Queria pedir para você deixar esse rapaz passar, a filha dele foi sequestrada pela cuca e ele precisa encontrar a Eva mate o quanto antes"
+												+ "para derrotar a cuca e recuperar sua filha.");
+								System.out.println(
+										"Lobisomem- HAHAHAHAHA! A Cuca já havia me avisado que ele viria por aqui... E ela me pagou muito mais para leva-lo para ela também, então peço que não entre no meu caminho novamente, Pé torto!");
+								System.out.println("Curupira- É... você não aprendeu nada mesmo.");
+								System.out.println(nomeP
+										+ "- Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+								System.out.println(
+										"Lobisomem- Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+												+ "Eu devo a ela!");
+								System.out.println(
+										"Curupira- Vou fazer você se arrepender de sua escolha seu lobo mimado. \n");
+								System.out.println(
+										"      A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio."
+												+ "Lembre-se que você aceitou ajudar o curupira, então você possui uma dica para resolver o problema.");
+								System.out.println("      PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");// dialogo
+																														// entra
+																														// os
+																														// tres
+																														// personagens
+																														// depois
+																														// que
+																														// o
+																														// usuario
+																														// conseguiu
+																														// se
+																														// aliar
+																														// ao
+																														// lobisomem
+
+								questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+								questaolobisomem.add("Resultado da soma: 26");
+								questaolobisomem.add("Resultado da soma: 28");
+								questaolobisomem.add("Resultado da soma: 21");
+								questaolobisomem.add("Resultado da soma: 22");
+
+								do {
+									Collections.shuffle(questaolobisomem);// embaralhando questoes
+									Collections.shuffle(questaolobisomem);
+
+									System.out.println(
+											"Desafio: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+													+ "Equação1 2°grau: 3x² - 27 = 0"
+													+ "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+													+ "Resposta = Resultado positivo equação1 + resultado equação2\n");
+									System.out.println(
+											"      DICA 1 DO CURUPIRA!!!!! Lembre-se que uma equação de 2°grau pode possuir um x negativo e uma x positivo, o desafio pede apenas a soma dos resultados positivos.");
+									System.out.println(
+											"      DICA 2 DO CURUPIRA!!! Lembre-se do que é MMC (mínimo múltiplo comum) que é o menor número, também inteiro, que é múltiplo de todos esses números ao mesmo tempo. "
+													+ "Por exemplo, o MMC entre 2 e 12 é 12, pois os múltiplos de 2 são 2, 4, 6, 8, 10, 12… e os de 12 são: 12, 24, …"
+													+ "Isso pode ser útil para resolver essa questão...\n");// desafio
+																											// com
+																											// dica
+																											// do
+																											// curupira
+									System.out.println("A - " + questaolobisomem.get(0));
+									System.out.println("B - " + questaolobisomem.get(1));
+									System.out.println("C - " + questaolobisomem.get(2));
+									System.out.println("D - " + questaolobisomem.get(3));
+									System.out.println("E - " + questaolobisomem.get(4) + "\n");
+									System.out.println("O resultado da soma das equações é: ");
+									respostalobisomem = entrada.next();
+
+									switch (respostalobisomem.toLowerCase()) { // switch do desafio do lobisomem
+
+									case "a":
+										if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso seja a letra
+																										// a
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "b":
+										if (questaolobisomem.get(1).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// b
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "c":
+										if (questaolobisomem.get(2).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// c
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											System.exit(0);
+										}
+										break;
+									case "d":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// d
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "e":
+										if (questaolobisomem.get(4).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// e
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									default: // se
+												// o
+												// usuario
+												// digitar
+												// aluma
+												// alternativa
+												// inexistente
+										System.out.println(
+												"          Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+										lobisomem = true;
+									}
+								} while (lobisomem == true);
+
+								curupira = true;
+							} else { // caso nao seja a letra b
+
+								System.out.println(
+										"\n Curupira: Pensei que você fosse mais inteligente. Vou pedir a ajuda de outra pessoa, pode seguir seu caminho sozinho.");
+								System.out.println("       Você está seguindo sua jornada para floresta sozinho...");
+								System.out.println(
+										"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+								System.out.println("       O barulho fica cada vez mais alto.");
+								System.out.println(nomeP + ": Isso não me cheira nada bem...\n");
+								System.out.println("SCRHHHHH!!!!!!\n");
+								System.out.println(
+										"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala:");
+								System.out.println("Lobisomem: Eu estava esperando por você! HAHAHAHA...");
+								System.out.println(nomeP
+										+ ": Voce deve ser o Lobisomem do qual me avisaram... Pode me ajudar ? Preciso encontrar Eva mate para resgatar minha filha que está com a Cuca.");
+								System.out.println(
+										"Lobisomem: HAHAHAHAHA! A Cuca já havia me avisado que viria por aqui... E ela me pagou muito mais para leva-lo para ela, eu aconselho você a ir do jeito mais facíl para não se machucar...");
+								System.out.println(nomeP
+										+ ": Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+								System.out.println(
+										"Lobisomem: Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+												+ "Eu devo a ela!");
+								System.out.println(
+										"       O que o Lobisomem não sabe é que Fulano tem habilidades especiais.");
+								System.out.println(nomeP
+										+ ": Eu não quero confusão, mas farei de tudo para chegar até minha menina... Nem você vai me parar!\n");
+								System.out.println(
+										"       A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio.");
+								System.out.println("       PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");// dialogo
+																														// sem
+																														// o
+																														// curupira
+
+								questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+								questaolobisomem.add("Resultado da soma: 26");
+								questaolobisomem.add("Resultado da soma: 28");
+								questaolobisomem.add("Resultado da soma: 21");
+								questaolobisomem.add("Resultado da soma: 22");
+
+								do {
+									Collections.shuffle(questaolobisomem);// embaralhando questoes
+									Collections.shuffle(questaolobisomem);
+
+									System.out.println(
+											"Desafio: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+													+ "Equação1 2°grau: 3x² - 27 = 0"
+													+ "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+													+ "Resposta = Resultado positivo equação1 + resultado equação2\n"); // desafio
+																														// sem
+																														// dica
+																														// do
+																														// curupira
+									System.out.println("A - " + questaolobisomem.get(0));
+									System.out.println("B - " + questaolobisomem.get(1));
+									System.out.println("C - " + questaolobisomem.get(2));
+									System.out.println("D - " + questaolobisomem.get(3));
+									System.out.println("E - " + questaolobisomem.get(4) + "\n");
+									System.out.println("O resultado da soma das equações é: ");
+									respostalobisomem = entrada.next();
+
+									switch (respostalobisomem.toLowerCase()) { // switch do desafio do lobisomem
+
+									case "a":
+										if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso seja letra a
+											System.out.println(
+													"        Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"        Você errou, concentre-se e tente novamente!");
+
+										}
+										break;
+									case "b":
+										if (questaolobisomem.get(1).equals("Resultado da soma: 24")) { // caso seja letra b
+											System.out.println(
+													"        Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"        Você errou, concentre-se e tente novamente!");
+
+										}
+										break;
+									case "c":
+										if (questaolobisomem.get(2).equals("Resultado da soma: 24")) { // caso seja letra c
+											System.out.println(
+													"        Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"        Você errou, concentre-se e tente novamente!");
+
+										}
+										break;
+									case "d":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso seja letra d
+											System.out.println(
+													"        Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"        Você errou, concentre-se e tente novamente!");
+
+										}
+										break;
+									case "e":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso seja letra e
+											System.out.println(
+													"        Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"        Você errou, concentre-se e tente novamente!");
+
+										}
+										break;
+									default: // se o usario digitar alguma alternativa que nao existe
+										System.out.println(
+												"            Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+										lobisomem = true;
+									}
+								} while (lobisomem == true); // saira
+																// do
+																// loop
+																// quando
+																// a
+																// boolean
+																// lobisomem
+																// for
+																// verdadeira
+
+								curupira = true;
+							}
+							break;
+
+						case "c":
+							if (questaocurupira.get(2).equals("1110(decimal)")) { // caso a alternativa do desafio do
+																					// curupira seja a letra c
+
+								System.out.println(
+										"Curupira: Nossa, não acredito que você conseguiu, vou te ajudar na floresta... ");
+								System.out.println("       Você está seguindo sua jornada para floresta...");
+								System.out.println(
+										"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+								System.out.println(
+										"       O barulho fica cada vez mais alto, você olha para o Curupira e percebe que sua feição não muda, parece até que eles está acostumado com aquilo.");
+								System.out.println(
+										nomeP + ": Você disse que ja tinha derrotado o Lobisomem, como foi isso ?");
+								System.out.println(
+										"Curupira: Há alguns anos tivemos um problema em comum, depois batalhar com ele sei que ele ficou muito fraco. Hoje em dia só ouço boatos que ele voltou para floresta e está mais forte do que antes."
+												+ "Mas desde então decidimos não entrarmos no caminho um do outro, por isso nunca mais nos encontramos...\n");
+								System.out.println("SCRHHHHH!!!!!!\n");
+								System.out.println(
+										"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala: ");
+								System.out.println(
+										"Lobisomem: Quanto tempo em Curupira, pensei que você ja tivesse desistido desse lugar...");
+								System.out.println(
+										"Curupira: Eu que pensei que você não iria mais voltar depois de eu te expulsar, mas pelo visto da pra perceber que você não mudou mesmo.");
+								System.out.println(
+										"Curupira: Mas enfim, não quero problemas com você, a gente sabe como isso termina... Queria pedir para você deixar esse rapaz passar, a filha dele foi sequestrada pela cuca e ele precisa encontrar a Eva mate o quanto antes"
+												+ "para derrotar a cuca e recuperar sua filha.");
+								System.out.println(
+										"Lobisomem: HAHAHAHAHA! A Cuca já havia me avisado que ele viria por aqui... E ela me pagou muito mais para leva-lo para ela também, então peço que não entre no meu caminho novamente, Pé torto!\n");
+								System.out.println("Curupira: É... você não aprendeu nada mesmo.");
+								System.out.println(nomeP
+										+ ": Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+								System.out.println(
+										"Lobisomem: Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+												+ "Eu devo a ela!");
+								System.out.println(
+										"Curupira: Vou fazer você se arrepender de sua escolha seu lobo mimado. \n");
+								System.out.println(
+										"      A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio."
+												+ "Lembre-se que você aceitou ajudar o curupira, então você possui uma dica para resolver o problema.");
+								System.out.println("      PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");// dialogo
+																														// com
+																														// curupira
+																														// lobisomem
+																														// e
+																														// personagem
+																														// principal
+
+								questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+								questaolobisomem.add("Resultado da soma: 26");
+								questaolobisomem.add("Resultado da soma: 28");
+								questaolobisomem.add("Resultado da soma: 21");
+								questaolobisomem.add("Resultado da soma: 22");
+
+								do {
+									Collections.shuffle(questaolobisomem);// embaralhar respostas
+									Collections.shuffle(questaolobisomem);
+
+									System.out.println(
+											"Desafio: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+													+ "Equação1 2°grau: 3x² - 27 = 0"
+													+ "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+													+ "Resposta = Resultado positivo equação1 + resultado equação2\n");
+									System.out.println(
+											"       DICA 1 DO CURUPIRA!!!!! Lembre-se que uma equação de 2°grau pode possuir um x negativo e uma x positivo, o desafio pede apenas a soma dos resultados positivos.");
+									System.out.println(
+											"       DICA 2 DO CURUPIRA!!! Lembre-se do que é MMC (mínimo múltiplo comum) que é o menor número, também inteiro, que é múltiplo de todos esses números ao mesmo tempo. "
+													+ "Por exemplo, o MMC entre 2 e 12 é 12, pois os múltiplos de 2 são 2, 4, 6, 8, 10, 12… e os de 12 são: 12, 24, …"
+													+ "Isso pode ser útil para resolver essa questão...\n");// desafio
+																											// com
+																											// dica
+																											// do
+																											// curupira
+									System.out.println("A - " + questaolobisomem.get(0));
+									System.out.println("B - " + questaolobisomem.get(1));
+									System.out.println("C - " + questaolobisomem.get(2));
+									System.out.println("D - " + questaolobisomem.get(3));
+									System.out.println("E - " + questaolobisomem.get(4) + "\n");
+									System.out.println("O resultado da soma das equações é: ");
+									respostalobisomem = entrada.next();
+
+									switch (respostalobisomem.toLowerCase()) { // switch desafio do lobisomem
+
+									case "a":
+										if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso seja letra a
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "b":
+										if (questaolobisomem.get(1).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// letra
+																										// b
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "c":
+										if (questaolobisomem.get(2).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// letra
+																										// c
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "d":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// letra
+																										// d
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "e":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// letra
+																										// e
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									default:// se
+											// o
+											// usario
+											// digitar
+											// alguma
+											// alternativa
+											// que
+											// nao
+											// existe
+										System.out.println(
+												"           Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+										lobisomem = true;
+									}
+								} while (lobisomem == true);// para
+															// sair
+															// do
+															// looping
+															// da
+															// fase
+															// do
+															// lobisomem
+															// a
+															// boolean
+															// lobisomem
+															// deve
+															// ser
+															// false
+
+								curupira = true;
+							} else { // caso nao seja a letra c na resposta para se aliar ao curupira
+
+								System.out.println(
+										"\n Curupira: Pensei que você fosse mais inteligente. Vou pedir a ajuda de outra pessoa, pode seguir seu caminho sozinho.");
+								System.out.println("       Você está seguindo sua jornada para floresta sozinho...");
+								System.out.println(
+										"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+								System.out.println("       O barulho fica cada vez mais alto.");
+								System.out.println(nomeP + ": Isso não me cheira nada bem...\n");
+								System.out.println("SCRHHHHH!!!!!!\n");
+								System.out.println(
+										"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala:");
+								System.out.println("Lobisomem: Eu estava esperando por você! HAHAHAHA...");
+								System.out.println(nomeP
+										+ ": Voce deve ser o Lobisomem do qual me avisaram... Pode me ajudar ? Preciso encontrar Eva mate para resgatar minha filha que está com a Cuca.");
+								System.out.println(
+										"Lobisomem: HAHAHAHAHA! A Cuca já havia me avisado que viria por aqui... E ela me pagou muito mais para leva-lo para ela, eu aconselho você a ir do jeito mais facíl para não se machucar...");
+								System.out.println(nomeP
+										+ ": Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+								System.out.println(
+										"Lobisomem: Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+												+ "Eu devo a ela!");
+								System.out.println(
+										"       O que o Lobisomem não sabe é que Fulano tem habilidades especiais.");
+								System.out.println(nomeP
+										+ ": Eu não quero confusão, mas farei de tudo para chegar até minha menina... Nem você vai me parar!\n");
+								System.out.println(
+										"       A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio.");
+								System.out.println("       PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");// dialogo
+																														// sem
+																														// o
+																														// curupira
+
+								questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+								questaolobisomem.add("Resultado da soma: 26");
+								questaolobisomem.add("Resultado da soma: 28");
+								questaolobisomem.add("Resultado da soma: 21");
+								questaolobisomem.add("Resultado da soma: 22");
+
+								do {
+									Collections.shuffle(questaolobisomem);// embaralhando respostas
+									Collections.shuffle(questaolobisomem);
+
+									System.out.println(
+											"Desafio: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+													+ "Equação1 2°grau: 3x² - 27 = 0"
+													+ "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+													+ "Resposta = Resultado positivo equação1 + resultado equação2\n"); // desafio
+																														// sem
+																														// a
+																														// dica
+																														// do
+																														// curupira
+									System.out.println("A - " + questaolobisomem.get(0));
+									System.out.println("B - " + questaolobisomem.get(1));
+									System.out.println("C - " + questaolobisomem.get(2));
+									System.out.println("D - " + questaolobisomem.get(3));
+									System.out.println("E - " + questaolobisomem.get(4) + "\n");
+									System.out.println("O resultado da soma das equações é: ");
+									respostalobisomem = entrada.next();
+
+									switch (respostalobisomem.toLowerCase()) { // switch para desafio do lobisomem
+
+									case "a":
+										if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso seja a letra
+																										// a
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "b":
+										if (questaolobisomem.get(1).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// b
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "c":
+										if (questaolobisomem.get(2).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// c
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "d":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// d
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "e":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// letra
+																										// e
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false; // boolean
+																// para
+																// sair
+																// do
+																// laço
+																// de
+																// repetição
+										} else { // caso nao seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									default: // caso
+												// o
+												// usario
+												// tenha
+												// digitar
+												// alguma
+												// alternativa
+												// que
+												// nao
+												// exite
+										System.out.println(
+												"          Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+										lobisomem = true;
+									}
+								} while (lobisomem == true);// para
+															// sair
+															// do
+															// looping
+															// do
+															// lobisomem
+															// a
+															// boolean
+															// deve
+															// ser
+															// declarada
+															// falsa
+
+								curupira = true;
+							}
+							break;
+
+						case "d":
+							if (questaocurupira.get(3).equals("1110(decimal)")) { // caso a resposta seja a letra d
+
+								System.out.println(
+										"Curupira: Nossa, não acredito que você conseguiu, vou te ajudar na floresta... ");
+								System.out.println("       Você está seguindo sua jornada para floresta...");
+								System.out.println(
+										"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+								System.out.println(
+										"       O barulho fica cada vez mais alto, você olha para o Curupira e percebe que sua feição não muda, parece até que eles está acostumado com aquilo.");
+								System.out.println(
+										nomeP + ": Você disse que ja tinha derrotado o Lobisomem, como foi isso ?");
+								System.out.println(
+										"Curupira: Há alguns anos tivemos um problema em comum, depois batalhar com ele sei que ele ficou muito fraco. Hoje em dia só ouço boatos que ele voltou para floresta e está mais forte do que antes."
+												+ "Mas desde então decidimos não entrarmos no caminho um do outro, por isso nunca mais nos encontramos...\n");
+								System.out.println("SCRHHHHH!!!!!!\n");
+								System.out.println(
+										"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala: ");
+								System.out.println(
+										"Lobisomem: Quanto tempo em Curupira, pensei que você ja tivesse desistido desse lugar...");
+								System.out.println(
+										"Curupira: Eu que pensei que você não iria mais voltar depois de eu te expulsar, mas pelo visto da pra perceber que você não mudou mesmo.");
+								System.out.println(
+										"Curupira: Mas enfim, não quero problemas com você, a gente sabe como isso termina... Queria pedir para você deixar esse rapaz passar, a filha dele foi sequestrada pela cuca e ele precisa encontrar a Eva mate o quanto antes"
+												+ "para derrotar a cuca e recuperar sua filha.");
+								System.out.println(
+										"Lobisomem: HAHAHAHAHA! A Cuca já havia me avisado que ele viria por aqui... E ela me pagou muito mais para leva-lo para ela também, então peço que não entre no meu caminho novamente, Pé torto!\n");
+								System.out.println("Curupira: É... você não aprendeu nada mesmo.");
+								System.out.println(nomeP
+										+ ": Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+								System.out.println(
+										"Lobisomem: Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+												+ "Eu devo a ela!");
+								System.out.println(
+										"Curupira: Vou fazer você se arrepender de sua escolha seu lobo mimado. \n");
+								System.out.println(
+										"      A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio."
+												+ "Lembre-se que você aceitou ajudar o curupira, então você possui uma dica para resolver o problema.");
+								System.out.println("      PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");// dialogo
+																														// com
+																														// o
+																														// curupira
+																														// lobisomem
+																														// e
+																														// personagem
+																														// principal
+																														// ao
+																														// conseguir
+																														// se
+																														// aliar
+																														// ao
+																														// curupira
+
+								questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+								questaolobisomem.add("Resultado da soma: 26");
+								questaolobisomem.add("Resultado da soma: 28");
+								questaolobisomem.add("Resultado da soma: 21");
+								questaolobisomem.add("Resultado da soma: 22");
+
+								do {
+									Collections.shuffle(questaolobisomem);// embaralhando respostas
+									Collections.shuffle(questaolobisomem);
+
+									System.out.println(
+											"Desafio: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+													+ "Equação1 2°grau: 3x² - 27 = 0"
+													+ "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+													+ "Resposta = Resultado positivo equação1 + resultado equação2\n");
+									System.out.println(
+											"     DICA 1 DO CURUPIRA!!!!! Lembre-se que uma equação de 2°grau pode possuir um x negativo e uma x positivo, o desafio pede apenas a soma dos resultados positivos.");
+									System.out.println(
+											"     DICA 2 DO CURUPIRA!!! Lembre-se do que é MMC (mínimo múltiplo comum) que é o menor número, também inteiro, que é múltiplo de todos esses números ao mesmo tempo. "
+													+ "Por exemplo, o MMC entre 2 e 12 é 12, pois os múltiplos de 2 são 2, 4, 6, 8, 10, 12… e os de 12 são: 12, 24, …"
+													+ "Isso pode ser útil para resolver essa questão...\n"); // desafio
+																												// com
+																												// dica
+																												// do
+																												// curupira
+									System.out.println("A - " + questaolobisomem.get(0));
+									System.out.println("B - " + questaolobisomem.get(1));
+									System.out.println("C - " + questaolobisomem.get(2));
+									System.out.println("D - " + questaolobisomem.get(3));
+									System.out.println("E - " + questaolobisomem.get(4) + "\n");
+									System.out.println("O resultado da soma das equações é: ");
+									respostalobisomem = entrada.next();
+
+									switch (respostalobisomem.toLowerCase()) { // switch do desafio do lobisomem
+
+									case "a":
+										if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso seja a letra
+																										// a
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "b":
+										if (questaolobisomem.get(1).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// letra
+																										// a
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "c":
+										if (questaolobisomem.get(2).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// letra
+																										// c
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "d":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// letra
+																										// d
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "e":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// letra
+																										// e
+											System.out.println(
+													"     Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"     Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									default: // caso
+												// o
+												// usario
+												// digite
+												// alguma
+												// alternativa
+												// que
+												// nao
+												// existe
+										System.out.println(
+												"         Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+										lobisomem = true;
+									}
+								} while (lobisomem == true);// para
+															// sair
+															// do
+															// looping
+															// do
+															// desaifo
+															// do
+															// lobisomem
+															// a
+															// boolean
+															// lobisomem
+															// deve
+															// ser
+															// false
+
+								curupira = true;
+							} else { // caso nao seja a letra d
+
+								System.out.println(
+										"\n Curupira: Pensei que você fosse mais inteligente. Vou pedir a ajuda de outra pessoa, pode seguir seu caminho sozinho.");
+								System.out.println("       Você está seguindo sua jornada para floresta sozinho...");
+								System.out.println(
+										"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+								System.out.println("       O barulho fica cada vez mais alto.");
+								System.out.println(nomeP + ": Isso não me cheira nada bem...\n");
+								System.out.println("SCRHHHHH!!!!!!\n");
+								System.out.println(
+										"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala:");
+								System.out.println("Lobisomem: Eu estava esperando por você! HAHAHAHA...");
+								System.out.println(nomeP
+										+ ": Voce deve ser o Lobisomem do qual me avisaram... Pode me ajudar ? Preciso encontrar Eva mate para resgatar minha filha que está com a Cuca.");
+								System.out.println(
+										"Lobisomem: HAHAHAHAHA! A Cuca já havia me avisado que viria por aqui... E ela me pagou muito mais para leva-lo para ela, eu aconselho você a ir do jeito mais facíl para não se machucar...");
+								System.out.println(nomeP
+										+ ": Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+								System.out.println(
+										"Lobisomem: Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+												+ "Eu devo a ela!");
+								System.out.println(
+										"       O que o Lobisomem não sabe é que Fulano tem habilidades especiais.");
+								System.out.println(nomeP
+										+ ": Eu não quero confusão, mas farei de tudo para chegar até minha menina... Nem você vai me parar!\n");
+								System.out.println(
+										"       A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio.");
+								System.out.println("       PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");// dialogo
+																														// sem
+																														// o
+																														// curupira
+																														// porque
+																														// o
+																														// usario
+																														// nao
+																														// consegiu
+																														// se
+																														// aliar
+																														// a
+																														// ele
+
+								questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+								questaolobisomem.add("Resultado da soma: 26");
+								questaolobisomem.add("Resultado da soma: 28");
+								questaolobisomem.add("Resultado da soma: 21");
+								questaolobisomem.add("Resultado da soma: 22");
+
+								do {
+									Collections.shuffle(questaolobisomem);// embaralhando respostas
+									Collections.shuffle(questaolobisomem);
+
+									System.out.println(
+											"Desafio: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+													+ "Equação1 2°grau: 3x² - 27 = 0"
+													+ "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+													+ "Resposta = Resultado positivo equação1 + resultado equação2\n"); // desafio
+																														// sem
+																														// a
+																														// dica
+																														// do
+																														// curupira
+									System.out.println("A - " + questaolobisomem.get(0));
+									System.out.println("B - " + questaolobisomem.get(1));
+									System.out.println("C - " + questaolobisomem.get(2));
+									System.out.println("D - " + questaolobisomem.get(3));
+									System.out.println("E - " + questaolobisomem.get(4) + "\n");
+									System.out.println("O resultado da soma das equações é: ");
+									respostalobisomem = entrada.next();
+
+									switch (respostalobisomem.toLowerCase()) {
+
+									case "a":
+										if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso seja a letra
+																										// a
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "b":
+										if (questaolobisomem.get(1).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// b
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "c":
+										if (questaolobisomem.get(2).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// c
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "d":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// d
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "e":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// seja
+																										// a
+																										// letra
+																										// e
+											System.out.println(
+													"      Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"      Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									default: // caso
+												// o
+												// usario
+												// digite
+												// alguma
+												// alternativa
+												// que
+												// nao
+												// exista
+										System.out.println(
+												"          Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+										lobisomem = true;
+									}
+								} while (lobisomem == true);// para
+															// sair
+															// do
+															// looping
+															// do
+															// desafio
+															// do
+															// lobisomem
+															// a
+															// boolean
+															// lobisomem
+															// deve
+															// ser
+															// false
+
+								curupira = true;
+							}
+							break;
+
+						case "e":
+
+							if (questaocurupira.get(4).equals("1110(decimal)")) { // caso seja a letra e
+
+								System.out.println(
+										"Curupira: Nossa, não acredito que você conseguiu, vou te ajudar na floresta... ");
+								System.out.println("       Você está seguindo sua jornada para floresta...");
+								System.out.println(
+										"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+								System.out.println(
+										"       O barulho fica cada vez mais alto, você olha para o Curupira e percebe que sua feição não muda, parece até que eles está acostumado com aquilo.");
+								System.out.println(
+										nomeP + ": Você disse que ja tinha derrotado o Lobisomem, como foi isso ?");
+								System.out.println(
+										"Curupira: Há alguns anos tivemos um problema em comum, depois batalhar com ele sei que ele ficou muito fraco. Hoje em dia só ouço boatos que ele voltou para floresta e está mais forte do que antes."
+												+ "Mas desde então decidimos não entrarmos no caminho um do outro, por isso nunca mais nos encontramos...\n");
+								System.out.println("SCRHHHHH!!!!!!\n");
+								System.out.println(
+										"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala: ");
+								System.out.println(
+										"Lobisomem: Quanto tempo em Curupira, pensei que você ja tivesse desistido desse lugar...");
+								System.out.println(
+										"Curupira: Eu que pensei que você não iria mais voltar depois de eu te expulsar, mas pelo visto da pra perceber que você não mudou mesmo.");
+								System.out.println(
+										"Curupira: Mas enfim, não quero problemas com você, a gente sabe como isso termina... Queria pedir para você deixar esse rapaz passar, a filha dele foi sequestrada pela cuca e ele precisa encontrar a Eva mate o quanto antes"
+												+ "para derrotar a cuca e recuperar sua filha.");
+								System.out.println(
+										"Lobisomem: HAHAHAHAHA! A Cuca já havia me avisado que ele viria por aqui... E ela me pagou muito mais para leva-lo para ela também, então peço que não entre no meu caminho novamente, Pé torto!\n");
+								System.out.println("Curupira: É... você não aprendeu nada mesmo.");
+								System.out.println(nomeP
+										+ ": Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+								System.out.println(
+										"Lobisomem: Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+												+ "Eu devo a ela!");
+								System.out.println(
+										"Curupira: Vou fazer você se arrepender de sua escolha seu lobo mimado. \n");
+								System.out.println(
+										"      A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio."
+												+ "Lembre-se que você aceitou ajudar o curupira, então você possui uma dica para resolver o problema.");
+								System.out.println("      PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");// dialogo
+																														// com
+																														// o
+																														// curupira
+																														// apos
+																														// o
+																														// personagem
+																														// principal
+																														// se
+																														// aliar
+																														// ao
+																														// cuurpira
+
+								questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+								questaolobisomem.add("Resultado da soma: 26");
+								questaolobisomem.add("Resultado da soma: 28");
+								questaolobisomem.add("Resultado da soma: 21");
+								questaolobisomem.add("Resultado da soma: 22");
+
+								do {
+									Collections.shuffle(questaolobisomem);// embaralhando respostas
+									Collections.shuffle(questaolobisomem);
+
+									System.out.println(
+											"Desafio: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+													+ "Equação1 2°grau: 3x² - 27 = 0"
+													+ "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+													+ "Resposta = Resultado positivo equação1 + resultado equação2\n");
+									System.out.println(
+											"     DICA 1 DO CURUPIRA!!!!! Lembre-se que uma equação de 2°grau pode possuir um x negativo e uma x positivo, o desafio pede apenas a soma dos resultados positivos.");
+									System.out.println(
+											"     DICA 2 DO CURUPIRA!!! Lembre-se do que é MMC (mínimo múltiplo comum) que é o menor número, também inteiro, que é múltiplo de todos esses números ao mesmo tempo. "
+													+ "Por exemplo, o MMC entre 2 e 12 é 12, pois os múltiplos de 2 são 2, 4, 6, 8, 10, 12… e os de 12 são: 12, 24, …"
+													+ "Isso pode ser útil para resolver essa questão...\n"); // desafio
+																												// do
+																												// lobisomem
+																												// com
+																												// a
+																												// dica
+																												// do
+																												// curupira
+									System.out.println("A - " + questaolobisomem.get(0));
+									System.out.println("B - " + questaolobisomem.get(1));
+									System.out.println("C - " + questaolobisomem.get(2));
+									System.out.println("D - " + questaolobisomem.get(3));
+									System.out.println("E - " + questaolobisomem.get(4) + "\n");
+									System.out.println("O resultado da soma das equações é: ");
+									respostalobisomem = entrada.next();
+
+									switch (respostalobisomem.toLowerCase()) { // switch do desafio do lobisomem
+
+									case "a":
+										if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso seja a letra
+																										// seja a correta
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "b":
+										if (questaolobisomem.get(1).equals("Resultado da soma: 24")) { // caso
+																										// a
+																										// letra
+																										// b
+																										// seja
+																										// a
+																										// correta
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "c":
+										if (questaolobisomem.get(2).equals("Resultado da soma: 24")) { // caso
+																										// a
+																										// letra
+																										// c
+																										// seja
+																										// correta
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "d":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// a
+																										// letra
+																										// d
+																										// seja
+																										// a
+																										// correta
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "e":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// a
+																										// letra
+																										// e
+																										// seja
+																										// a
+																										// correta
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									default: // caso
+												// usario
+												// digite
+												// alguma
+												// alternativa
+												// que
+												// nao
+												// existe
+										System.out.println(
+												"       Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+										lobisomem = true;
+									}
+								} while (lobisomem == true);// para
+															// sair
+															// do
+															// laço
+															// de
+															// repetição
+															// referente
+															// ao
+															// desafio
+															// do
+															// lobisomem
+															// a
+															// boolean
+															// lobisomem
+															// deve
+															// ser
+															// false
+
+								curupira = true;
+							} else { // caso nao seja a letra e
+
+								System.out.println(
+										"\n Curupira: Pensei que você fosse mais inteligente. Vou pedir a ajuda de outra pessoa, pode seguir seu caminho sozinho.");
+								System.out.println("       Você está seguindo sua jornada para floresta sozinho...");
+								System.out.println(
+										"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+								System.out.println("       O barulho fica cada vez mais alto.");
+								System.out.println(nomeP + ": Isso não me cheira nada bem...\n");
+								System.out.println("SCRHHHHH!!!!!!\n");
+								System.out.println(
+										"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala:");
+								System.out.println("Lobisomem: Eu estava esperando por você! HAHAHAHA...");
+								System.out.println(nomeP
+										+ ": Voce deve ser o Lobisomem do qual me avisaram... Pode me ajudar ? Preciso encontrar Eva mate para resgatar minha filha que está com a Cuca.");
+								System.out.println(
+										"Lobisomem: HAHAHAHAHA! A Cuca já havia me avisado que viria por aqui... E ela me pagou muito mais para leva-lo para ela, eu aconselho você a ir do jeito mais facíl para não se machucar...");
+								System.out.println(nomeP
+										+ ": Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+								System.out.println(
+										"Lobisomem: Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+												+ "Eu devo a ela!");
+								System.out.println(
+										"       O que o Lobisomem não sabe é que Fulano tem habilidades especiais.");
+								System.out.println(nomeP
+										+ ": Eu não quero confusão, mas farei de tudo para chegar até minha menina... Nem você vai me parar!\n");
+								System.out.println(
+										"       A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio.");
+								System.out.println("       PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");// dialogo
+																														// sem
+																														// o
+																														// curupira
+																														// pq
+																														// o
+																														// usario
+																														// noa
+																														// conseguiu
+																														// se
+																														// aliar
+
+								questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+								questaolobisomem.add("Resultado da soma: 26");
+								questaolobisomem.add("Resultado da soma: 28");
+								questaolobisomem.add("Resultado da soma: 21");
+								questaolobisomem.add("Resultado da soma: 22");
+
+								do {
+									Collections.shuffle(questaolobisomem);// embaralhar respostas
+									Collections.shuffle(questaolobisomem);
+
+									System.out.println(
+											"Desafio: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+													+ "Equação1 2°grau: 3x² - 27 = 0"
+													+ "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+													+ "Resposta = Resultado positivo equação1 + resultado equação2\n"); // desafio
+																														// sem
+																														// a
+																														// dica
+																														// do
+																														// curupira
+									System.out.println("A - " + questaolobisomem.get(0));
+									System.out.println("B - " + questaolobisomem.get(1));
+									System.out.println("C - " + questaolobisomem.get(2));
+									System.out.println("D - " + questaolobisomem.get(3));
+									System.out.println("E - " + questaolobisomem.get(4) + "\n");
+									System.out.println("O resultado da soma das equações é: ");
+									respostalobisomem = entrada.next();
+
+									switch (respostalobisomem.toLowerCase()) {
+
+									case "a":
+										if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso a letra a
+																										// seja a correta
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+													// a
+													// correta
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "b":
+										if (questaolobisomem.get(1).equals("Resultado da soma: 24")) { // caso
+																										// a
+																										// letra
+																										// correta
+																										// seja
+																										// a
+																										// b
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+													// a
+													// correta
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "c":
+										if (questaolobisomem.get(2).equals("Resultado da soma: 24")) { // caso
+																										// a
+																										// letra
+																										// correta
+																										// seja
+																										// a
+																										// c
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+													// a
+													// correta
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "d":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// a
+																										// letra
+																										// correta
+																										// seja
+																										// a
+																										// d
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									case "e":
+										if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																										// a
+																										// letra
+																										// correta
+																										// seja
+																										// a
+																										// e
+											System.out.println(
+													"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+											lobisomem = false;
+										} else { // caso
+													// nao
+													// seja
+													// a
+													// correta
+											System.out.println(
+													"       Você errou, concentre-se e tente novamente!");
+											
+										}
+										break;
+									default:
+										System.out.println(
+												"           Opção invalida. Responda o desafio apenas com as opções indicadas.");
+										lobisomem = true;
+									}
+								} while (lobisomem == true);// para
+															// sair
+															// do
+															// laço
+															// de
+															// repetição
+															// referente
+															// fase
+															// do
+															// lobisomem
+															// a
+															// boolean
+															// lobisomem
+															// deve
+															// ser
+															// false
+
+								curupira = true;
+							}
+							break;
+
+						default:
+							System.out.println(
+									"         Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+							curupira = false;
+						}
+
+					} while (curupira == false);
+					escolhaajuda = false;
+					break;
+
+				case 2: // caso ele optar por não ter ajuda do curupira
+					System.out.println(
+							"\n Curupira: OK, é você quem sabe... espero que tenha muita força e coragem para enfrentar o Lobisomem.");
+					System.out.println("       Você está seguindo sua jornada para floresta sozinho...");
+					System.out.println(
+							"       A floresta é densa e escura, ao ouvir alguns barulhos estranhos você já sente calafrios e um arrepio na nuca. Mas o medo nunca irá vencer sua esperança e fé de encontrar sua filha...");
+					System.out.println("       O barulho fica cada vez mais alto.");
+					System.out.println(nomeP + ": Isso não me cheira nada bem...\n");
+					System.out.println("SCRHHHHH!!!!!!\n");
+					System.out.println(
+							"       Derepente da escuridão surge uma criatura enorme (fala as características do lobisomem) e fala:");
+					System.out.println("Lobisomem: Eu estava esperando por você! HAHAHAHA...\n");
+					System.out.println(nomeP
+							+ ": Voce deve ser o Lobisomem do qual me avisaram... Pode me ajudar ? Preciso encontrar Eva mate para resgatar minha filha que está com a Cuca.");
+					System.out.println(
+							"Lobisomem: HAHAHAHAHA! A Cuca já havia me avisado que viria por aqui... E ela me pagou muito mais para leva-lo para ela, eu aconselho você a ir do jeito mais facíl para não se machucar...");
+					System.out.println(nomeP + ": Por favor Sr.Lobisomem, me deixe passar, preciso encontrar minha filha!");
+					System.out.println("Lobisomem: Calado seu insolente, vou te levar junto comigo para a mestre Cuca!"
+							+ "Eu devo a ela!");
+					System.out.println("       O que o Lobisomem não sabe é que Fulano tem habilidades especiais.");
+					System.out.println(nomeP
+							+ ": Eu não quero confusão, mas farei de tudo para chegar até minha menina... Nem você vai me parar! \n");
+					System.out
+							.println("      A batalha com o Lobisomem irá acontecer, prepare-se para resolver o desafio.");
+					System.out.println("      PARA DERROTAR O LOBISOMEM RESOLVA O SEGUINTE DESAFIO: \n");// dialogo
+																											// sem
+																											// o
+																											// curupira
+																											// pq
+																											// o
+																											// usario
+																											// escolheu
+																											// nao
+																											// se
+																											// aliar
+
+					questaolobisomem.add("Resultado da soma: 24"); // resposta correta lobisomem
+					questaolobisomem.add("Resultado da soma: 26");
+					questaolobisomem.add("Resultado da soma: 28");
+					questaolobisomem.add("Resultado da soma: 21");
+					questaolobisomem.add("Resultado da soma: 22");
+
+					do {
+						Collections.shuffle(questaolobisomem);// embaralhar perguntas
+						Collections.shuffle(questaolobisomem);
+
+						System.out.println(
+								"Desafio: Faça a soma apenas do resultado positivo da seginte equação de 2°grau com o resultado da equação de 1°grau."
+										+ "Equação1 2°grau: 3x² - 27 = 0" + "Equação2 1°grau: x(x - 14) + (x/3 + 7) = 42"
+										+ "Resposta = Resultado positivo equação1 + resultado equação2\n"); // desafio
+																											// sem
+																											// dica
+																											// do
+																											// curupira
+						System.out.println("A - " + questaolobisomem.get(0));
+						System.out.println("B - " + questaolobisomem.get(1));
+						System.out.println("C - " + questaolobisomem.get(2));
+						System.out.println("D - " + questaolobisomem.get(3));
+						System.out.println("E - " + questaolobisomem.get(4) + "\n");
+						System.out.println("O resultado da soma das equações é: ");
+						respostalobisomem = entrada.next();
+
+						switch (respostalobisomem.toLowerCase()) { // switch referente ao desafio do lobisomem
+
+						case "a":
+							if (questaolobisomem.get(0).equals("Resultado da soma: 24")) { // caso a correta seja a letra a
+								System.out.println(
+										"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+								lobisomem = false;
+							} else { // caso
+										// nao
+										// seja
+								System.out.println("       Você errou, concentre-se e tente novamente!");
+								
+							}
+							break;
+						case "b":
+							if (questaolobisomem.get(1).equals("Resultado da soma: 24")) { // caso
+																							// a
+																							// correta
+																							// seja
+																							// a
+																							// letra
+																							// a
+								System.out.println(
+										"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+								lobisomem = false;
+							} else { // caso
+										// nao
+										// seja
+								System.out.println("       Você errou, concentre-se e tente novamente!");
+								
+							}
+							break;
+						case "c":
+							if (questaolobisomem.get(2).equals("Resultado da soma: 24")) { // caso
+																							// a
+																							// correta
+																							// seja
+																							// a
+																							// letra
+																							// a
+								System.out.println(
+										"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+								lobisomem = false;
+							} else { // caso
+										// nao
+										// seja
+								System.out.println("       Você errou, concentre-se e tente novamente!");
+								
+							}
+							break;
+						case "d":
+							if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																							// a
+																							// correta
+																							// seja
+																							// a
+																							// letra
+																							// a
+								System.out.println(
+										"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+								lobisomem = false;
+							} else { // caso
+										// nao
+										// seja
+								System.out.println("       Você errou, concentre-se e tente novamente!");
+								
+							}
+							break;
+						case "e":
+							if (questaolobisomem.get(3).equals("Resultado da soma: 24")) { // caso
+																							// a
+																							// correta
+																							// seja
+																							// a
+																							// letra
+																							// e
+								System.out.println(
+										"       Você acertou e conseguiu passar do Lobisomem e pode prosseguir de fase!");
+								lobisomem = false;
+							} else { // caso
+										// nao
+										// seja
+								System.out.println("       Você errou, concentre-se e tente novamente!");
+								
+							}
+							break;
+						default:
+							System.out
+									.println("       Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+							lobisomem = true;
+						}
+					} while (lobisomem == true); // para
+													// sair
+													// do
+													// looping
+													// do
+													// desafio
+													// do
+													// lobisomem
+													// a
+													// boolean
+													// lobisomem
+													// precisa
+													// ser
+													// false
+
+					escolhaajuda = false;
+					break;
+				default: // caso ele digite alguma opção que nao exista
+					System.out.println("       Opção invalida. Responda apenas com as opções apresentadas.\n");
+					escolhaajuda = true;// a
+										// boolean
+										// da
+										// opçao
+										// de
+										// escolha
+										// de
+										// ajuda
+										// do
+										// curupira
+										// precisa
+										// ser
+										// false
+										// para
+										// sair
+										// do
+										// looping
+
+				}
+			} while (escolhaajuda == true);
+
+			System.out.println(
+					"          \n Logo após muito sacrifício e muito esforço, você conseguiu passar pelo monstro mais temido da floresta. Agora está continuando sua jornada em busca da Erva mate para ela te ajudar a encontrar "
+							+ "sua filha e derrotar a cuca.");
+			System.out.println(
+					"       Como o Neguinho do Pastoreiro te contou, a Erva está nessa região da floresta, basta você se concentrar e orar para encontra-la.");
+			System.out.println(nomeP
+					+ ": Por favor, que eu receba algum sinal para encontrar a Erva, eu preciso encontrar minha filha, POR FAVOR!!!!");
+			System.out.println(
+					"       De repente ele ve uma luz forte vindo ao lado de uma árvore, se aproxima e percebe que o sinal que havia pedido foi atendido. Era o Negrinho do Pastoreiro mais uma vez, vindo o ajudar.");
+			System.out.println(
+					"Negrinho do Pastoreiro: Sou eu novamente, eu ouvi o seu pedido, estou aqui para te mostrar onde a Erva está localizada. Ande 30 metros para o leste e encontrará a guardiã da folha, Caá-Yari e peça para ela o poder místico da Erva.");
+			System.out.println("       Você está seguindo para o leste da floresta...");
+			System.out.println(nomeP + ": Olá, você é a Caá-Yari ?");
+			System.out.println("Caá-Yari: Sim... quem é você ?");
+			System.out.println(nomeP
+					+ ": Meu nome é (personagem), me disseram que você poderia me ajudar a recuperar minha filha das mãos da cuca. Eu preciso do poder da Erva para conseguir derrota-la.");
+			System.out.println(
+					"Caá-Yari: Minha aparição acontece apenas para pessoas e motivos dignos, então se eu estou aqui falando com você, significa que está destinado a receber o poder da folha. Irei dá-lo a você... Mas lembre-se, "
+							+ "use-o com sabedoria, esse poder é sagrado e sua história também. Por isso deve passar por um desafio para provar que é merecedor dessa divindade.\n");
+			System.out.println("       PARA RECEBER O PODER RESOLVA O SEGUINTE DESAFIO: \n");
+
+			alternativaservamate.add("1001(binario)");
+			alternativaservamate.add("1000(binario)");
+			alternativaservamate.add("1010(binario)");
+			alternativaservamate.add("100(binario)");
+			alternativaservamate.add("101(binario)"); // respostas
+														// correta
+
+			do {
+				Collections.shuffle(alternativaservamate);
+				Collections.shuffle(alternativaservamate);
+				Collections.shuffle(alternativaservamate);
+				System.out.println("1° ETAPA DESAFIO: 101110100(binario) x 4E(hexa) = x(decimal)");
+				System.out.println("2° ETAPA DESAFIO: x(decimal) / 132(octal) = y(binario) \n");
+				System.out.println("A - " + alternativaservamate.get(0));
+				System.out.println("B - " + alternativaservamate.get(1));
+				System.out.println("C - " + alternativaservamate.get(2));
+				System.out.println("D - " + alternativaservamate.get(3));
+				System.out.println("E - " + alternativaservamate.get(4) + "\n");
+				System.out.println("Qual é o valor de Y em binário ?");
+				respostaervamate = entrada.next();
+
+				switch (respostaervamate) {
+				case "a":
+				case "A":
+					if (alternativaservamate.get(0).equals("101(binario)")) {
+						System.out.println("Caá-Yari: Você se provou merecedor do poder da Erva-Mate. Parabéns!!!!\n");
+						ervamate = true;
+					} else {
+						System.out.println(
+								"Caá-Yari: Eu sinto que você pode fazer melhor para merecer o poder, vamos lá!!!\n");
+					}
+					break;
+				case "b":
+				case "B":
+					if (alternativaservamate.get(1).equals("101(binario)")) {
+						System.out.println("Caá-Yari: Você se provou merecedor do poder da Erva-Mate. Parabéns!!!!\n");
+						ervamate = true;
+					} else {
+						System.out.println(
+								"Caá-Yari: Eu sinto que você pode fazer melhor para merecer o poder, vamos lá!!!\n");
+					}
+					break;
+				case "c":
+				case "C":
+					if (alternativaservamate.get(2).equals("101(binario)")) {
+						System.out.println("Caá-Yari: Você se provou merecedor do poder da Erva-Mate. Parabéns!!!!\n");
+						ervamate = true;
+					} else {
+						System.out.println(
+								"Caá-Yari: Eu sinto que você pode fazer melhor para merecer o poder, vamos lá!!!\n");
+					}
+					break;
+				case "d":
+				case "D":
+					if (alternativaservamate.get(3).equals("101(binario)")) {
+						System.out.println("Caá-Yari: Você se provou merecedor do poder da Erva-Mate. Parabéns!!!!\n");
+						ervamate = true;
+					} else {
+						System.out.println(
+								"Caá-Yari: Eu sinto que você pode fazer melhor para merecer o poder, vamos lá!!!\n");
+					}
+					break;
+				case "e":
+				case "E":
+					if (alternativaservamate.get(4).equals("101(binario)")) {
+						System.out.println("Caá-Yari: Você se provou merecedor do poder da Erva-Mate. Parabéns!!!!\n");
+						ervamate = true;
+					} else {
+						System.out.println(
+								"Caá-Yari: Eu sinto que você pode fazer melhor para merecer o poder, vamos lá!!!\n");
+					}
+					break;
+				default:
+					System.out.println("Computador: Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+					ervamate = false;
+				}
+			} while (ervamate == false);
+
+			System.out.println(
+					"       Agora que conseguiu obter a Erva-Mate, você recebeu um buff de 100% de vida e 50% de inteligência. Isso irá te ajudar no seu desafio final contra a cuca... Prepare-se!\n");
+			System.out.println(
+					"       Agora, mais destemido do que nunca, você já sabe que o esconderijo da cuca está próximo.");
+			System.out.println(nomeP + ": Eu sei que estou perto, cheguei até aqui e não vou desistir de jeito nenhum...");
+			System.out.println(
+					"       Ao se aproximar do esconderijo seu corpo já começa a sentir calafrios, sente que o perigo está proximo.\n");
+			System.out.println("   SCRHHH!!!!!!!\n");
+			System.out.println(
+					"       Na escuridão da floresta você avista uma criatura esquisita, parecendo um lacoste e fala:");
+			System.out.println(nomeP
+					+ ": CUCA ? Eu sei que é você, pode sair da escuridão e devolva minha filha, eu não saio daqui sem ela!!!!");
+			System.out.println(
+					"Cuca: HAHAHAHAHAHA!!!! Em poucos minutos os preparativos estarão prontos e o meu plano finalmente poderá acontecer!!! Sua filha é a peça chave para tudo isso dar certo, não existe mais volta!");
+			System.out.println(
+					nomeP + ": NADA DISSO! Eu não saio daqui sem ela, já sei como te derrotar e não vou desistir!");
+			System.out.println("Cuca: Você acha mesmo que tem chances contra mim ? Eu tenho as trevas como minha aliada!");
+			System.out.println(nomeP + ": Não me importo, os poderes divinos estão do meu! \n");
+			System.out.println("       A batalha final com a cuca irá acontecer... PREPARE-SE!!!");
+			System.out.println("       PARA DERROTAR A CUCA RESOLVA O SEGUINTE DESAFIO: \n");
+			System.out.println(
+					"*---- LEMBRE-SE: VOCÊ ESTÁ COM O PODER DIVINO DA ERVA MATE, COM 100% A MAIS DE VIDA NÃO PODE SER DERROTADO. 50% A MAIS DE INTELIGÊNCIA VOCÊ TEM DIREITO A UMA DICA. \n");
+
+			alternativascuca.add("1,35"); // resposta correta
+			alternativascuca.add("2,00");
+			alternativascuca.add("1,30");
+			alternativascuca.add("1,40");
+			alternativascuca.add("1,50");
+
+			do {
+				Collections.shuffle(alternativascuca);
+				Collections.shuffle(alternativascuca);
+				Collections.shuffle(alternativascuca);
+
+				System.out.println("DICA 1: A raiz quadrada de 484 é igual a 22. ");
+				System.out.println(
+						"1° ETAPA DESAFIO: 10000000(binário) + resultado positivo da equação (2x²- 6x - 56 = 0) = x(decimal) \n");
+				System.out.println("2° ETAPA DESAFIO: x / E9(hexadecimal) = y(decimal)");
+
+				System.out.println("A - " + alternativascuca.get(0));
+				System.out.println("B - " + alternativascuca.get(1));
+				System.out.println("C - " + alternativascuca.get(2));
+				System.out.println("D - " + alternativascuca.get(3));
+				System.out.println("E - " + alternativascuca.get(4) + "\n");
+				System.out.println("Qual o valor de Y em decimal ?");
+				respostacuca = entrada.next();
+
+				switch (respostacuca) {
+
+				case "a":
+				case "A":
+					if (alternativascuca.get(0).equals("1,35")) {
+						System.out.println(
+								"       Esse ataque foi certeiro, parabens!!! Você conseguiu derrota-lá. Pegue sua filha e và embora desse lugar!\n");
+						cuca = true;
+					} else {
+						System.out.println(
+								"       Dessa vez você teve sorte!! O poder da Erva-mate fez você aguentar o tranco!! Preste atenção na dica e tente novamente. Você é capaz!!!\n");
+					}
+					break;
+				case "b":
+				case "B":
+					if (alternativascuca.get(1).equals("1,35")) {
+						System.out.println(
+								"       Esse ataque foi certeiro, parabens!!! Você conseguiu derrota-lá. Pegue sua filha e và embora desse lugar!\n");
+						cuca = true;
+					} else {
+						System.out.println(
+								"       Dessa vez você teve sorte!! O poder da Erva-mate fez você aguentar o tranco!! Preste atenção na dica e tente novamente. Você é capaz!!!\n");
+					}
+					break;
+				case "c":
+				case "C":
+					if (alternativascuca.get(2).equals("1,35")) {
+						System.out.println(
+								"       Esse ataque foi certeiro, parabens!!! Você conseguiu derrota-lá. Pegue sua filha e và embora desse lugar!\n");
+						cuca = true;
+					} else {
+						System.out.println(
+								"       Dessa vez você teve sorte!! O poder da Erva-mate fez você aguentar o tranco!! Preste atenção na dica e tente novamente. Você é capaz!!!\n");
+					}
+					break;
+				case "d":
+				case "D":
+					if (alternativascuca.get(3).equals("1,35")) {
+						System.out.println(
+								"       Esse ataque foi certeiro, parabens!!! Você conseguiu derrota-lá. Pegue sua filha e và embora desse lugar!\n");
+						cuca = true;
+					} else {
+						System.out.println(
+								"       Dessa vez você teve sorte!! O poder da Erva-mate fez você aguentar o tranco!! Preste atenção na dica e tente novamente. Você é capaz!!!\n");
+					}
+					break;
+				case "e":
+				case "E":
+					if (alternativascuca.get(4).equals("1,35")) {
+						System.out.println(
+								"       Esse ataque foi certeiro, parabens!!! Você conseguiu derrota-lá. Pegue sua filha e và embora desse lugar!\n");
+						cuca = true;
+					} else {
+						System.out.println(
+								"       Dessa vez você teve sorte!! O poder da Erva-mate fez você aguentar o tranco!! Preste atenção na dica e tente novamente. Você é capaz!!!\n");
+					}
+					break;
+				default:
+					System.out.println("       Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+					cuca = false;
+				}
+			} while (cuca == false);
+		}
+	}
+
