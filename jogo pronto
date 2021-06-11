@@ -689,6 +689,96 @@ public class jogofinal {
 					+ "fornecendo mais motivações para continuar enfrentando todos os demais desafios.");
 			System.out.println("Antes de ir... Você olha para trás e vê IARA caminhando de volta ao mar, \n"
 					+ "retornando ao seu ambiente. Liberando sua passagem, permitindo com que você avance adiante...");
+					
+	ArrayList<String> questaoCorpoSeco = new ArrayList<String>();
+        String respostaCorpoSeco;
+        String respostaCorretaCorpoSeco = "1010(Binário)= 12(Decimal)";
+
+        System.out.println("Continuando sua jornada, o personagem se depara com uma estranha e aterrorizante criatura, parecida com um morto-vivo, o corpo-seco! \n");
+        System.out.println("Corpo-Seco: Você não deveria andar por essas terras, estranho...\n");
+        System.out.println(nomeP + "(com expressão de espanto): Mas quem é você?\n");
+        System.out.println("Corpo-Seco: Sou aquele que foi amaldiçoado a vagar para sempre na terra ,mesmo ápos morrer, pois nem Deus ou o diabo me querem. Mas todos me temem ao escutar meu nome: Corpo-seco...\n");
+        System.out.println(nomeP + ": Como isso é possível? O que você fez para acabar assim? Rejeitado por Deus e até pelo diabo?\n");
+        System.out.println("Corpo-Seco: Meus pecados em vida foram terríveis demais para serem perdoados por alguém...fui cruel com todos, inclusive com minha própria mãe. Desde então, passo a aterrorizar aqueles que cruzam meu caminho, como você!\n");
+        System.out.println(nomeP + ": Esta história é terrível! Realmente você é muito cruel! Mas não terei medo de você! Estou procurando minha filha sequestrada, e ninguém me fará desistir!\n");
+        System.out.println("Corpo-Seco: Você se importa muito com os outros... São sentimentos que jamais me importaram...Por sua coragem em me enfrentar, vou te propor um acordo; se conseguir resolver meu desafio, permitirei que vá embora, mas se falhar, jamais irei embora e irei assombra-lo para sempre, até que fique como eu...\n");
+        System.out.println(nomeP + ": Sim, meus sentimentos pela minha filha são importantes. E seram eles que me ajudaram a te vencer!\n");
+
+        System.out.println("Prepare-se para enfrentar o desafio do corpo-seco! Se você perder, sua jornada acaba e ele não o deixará em paz!\n");
+
+        questaoCorpoSeco.add("10(Decimal)= A(Hexadecimal)");
+        questaoCorpoSeco.add("1010(Binário)= 12(Octal)");
+        questaoCorpoSeco.add("1010(Binário)= 12(Decimal)");   //Resposta correta do corpo-seco
+        questaoCorpoSeco.add("1010(Decimal)= 3F2(Hexadecimal)");
+        questaoCorpoSeco.add("7640(Octal)= 4000(Decimal)");
+
+        do {
+
+            Collections.shuffle(questaoCorpoSeco); //Embaralha as questões do corpo-seco
+
+            System.out.println("Qual das conversões de base abaixo está incorreta:\n"); //Desafio do corpo-seco
+
+            System.out.println("A - " + questaoCorpoSeco.get(0));
+            System.out.println("B - " + questaoCorpoSeco.get(1));
+            System.out.println("C - " + questaoCorpoSeco.get(2));
+            System.out.println("D - " + questaoCorpoSeco.get(3));
+            System.out.println("E - " + questaoCorpoSeco.get(4));
+            respostaCorpoSeco = entrada.next();
+
+            switch (respostaCorpoSeco.toLowerCase()) //Switch desafio corpo-seco
+            {
+
+                case "a":
+                    if (questaoCorpoSeco.get(0).equals(respostaCorretaCorpoSeco)) { //se for a letra a
+                        System.out.println("Você conseguiu vencer o corpo-seco! Pelo visto você está preparado para os próximos desafios, siga adiante!");
+
+                    } else { //se nao for
+                        System.out.println("Resposta errada. Te desejo sorte para os próximos desafios, talvez você irá precisar hahaha!");
+
+                    }
+                    break;
+                case "b":
+                    if (questaoCorpoSeco.get(1).equals(respostaCorretaCorpoSeco)) { //se for a letra b
+                        System.out.println("Você conseguiu vencer o corpo-seco! Pelo visto você está preparado para os próximos desafios, siga adiante!");
+
+                    } else { //se não for
+                        System.out.println("Resposta errada. Te desejo sorte para os próximos desafios, talvez você irá precisar hahaha!");
+
+                    }
+                    break;
+                case "c":
+                    if (questaoCorpoSeco.get(2).equals(respostaCorretaCorpoSeco)) { //se for a letra c
+                        System.out.println("Você conseguiu vencer o corpo-seco! Pelo visto você está preparado para os próximos desafios, siga adiante!");
+
+                    } else { //se não for
+                        System.out.println("Resposta errada. Te desejo sorte para os próximos desafios, talvez você irá precisar hahaha!");
+
+                    }
+                    break;
+                case "d":
+                    if (questaoCorpoSeco.get(3).equals(respostaCorretaCorpoSeco)) { //se for a letra d
+                        System.out.println("Você conseguiu vencer o corpo-seco! Pelo visto você está preparado para os próximos desafios, siga adiante!");
+                        System.out.println("");
+
+                    } else { //se não for
+                        System.out.println("Resposta errada. Te desejo sorte para os próximos desafios, talvez você irá precisar hahaha!");
+
+                    }
+                    break;
+                case "e":
+                    if (questaoCorpoSeco.get(4).equals(respostaCorretaCorpoSeco)) { //se for a letra e
+                        System.out.println("Você conseguiu vencer o corpo-seco! Pelo visto você está preparado para os próximos desafios, siga adiante!");
+
+                    } else { //se não for
+                        System.out.println("Resposta errada. Te desejo sorte para os próximos desafios, talvez você irá precisar hahaha!");
+
+                    }
+                    break;
+                default: //caso a alternativa do usuário seja inválida
+                    System.out.println("Opção invalida. Responda o desafio apenas com as opções indicadas.\n");
+            }
+
+        } while (!respostaCorpoSeco.toLowerCase().equals("a") && !respostaCorpoSeco.toLowerCase().equals("b") && !respostaCorpoSeco.toLowerCase().equals("c") && !respostaCorpoSeco.toLowerCase().equals("d") && !respostaCorpoSeco.toLowerCase().equals("e"));
 
 			System.out.println("\n         Seguindo adiante, " + nomeP
 					+ " sabe que seu próximo desafio se encontra na Floresta. Em seu caminho ele encontra mais uma criatura peculiar (fala as caracteristicas do curupira). Ao se aproximar ele diz: \n");
